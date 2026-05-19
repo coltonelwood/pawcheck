@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Geist:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-fraunces: 'Fraunces', Georgia, serif;
+  --font-geist: 'Geist', system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  /* Display font for headings */
+  h1, h2, h3 {
+    font-family: var(--font-fraunces);
+    font-feature-settings: 'ss01', 'kern';
+    letter-spacing: -0.02em;
+  }
+
+  /* Refined number display */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  /* Subtle paper texture overlay */
+  .texture-paper {
+    background-image: 
+      radial-gradient(circle at 0% 0%, rgba(232, 165, 71, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 100% 100%, rgba(45, 90, 78, 0.03) 0%, transparent 50%);
+  }
+
+  /* Editorial divider */
+  .divider-ornate {
+    @apply relative flex items-center;
+  }
+  .divider-ornate::before,
+  .divider-ornate::after {
+    content: '';
+    @apply flex-1 h-px bg-forest-600/15;
+  }
+  .divider-ornate > * {
+    @apply px-4 text-amber-400;
+  }
+
+  /* Gradient text for hero accents */
+  .gradient-forest {
+    background: linear-gradient(135deg, #2D5A4E 0%, #5A8270 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Smooth scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-cream-100;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-forest-600/20 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-forest-600/40;
+  }
+
+  /* Subtle grain texture for premium feel */
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* Animation utility for staggered reveals */
+.stagger-children > * {
+  opacity: 0;
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 80ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 160ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 320ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 400ms; }
+.stagger-children > *:nth-child(7) { animation-delay: 480ms; }
+.stagger-children > *:nth-child(8) { animation-delay: 560ms; }
