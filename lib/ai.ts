@@ -1,8 +1,17 @@
 import Anthropic from '@anthropic-ai/sdk'
 
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY!,
-})
+// Lazy singleton — constructing the SDK at module scope throws when
+// ANTHROPIC_API_KEY is missing, which crashes `next build`.
+let _anthropic: Anthropic | null = null
+function getAnthropic(): Anthropic {
+  if (_anthropic) return _anthropic
+  const apiKey = process.env.ANTHROPIC_API_KEY
+  if (!apiKey) {
+    throw new Error('ANTHROPIC_API_KEY is not configured')
+  }
+  _anthropic = new Anthropic({ apiKey })
+  return _anthropic
+}
 
 export async function generateStructuredJson<T>(params: {
   systemPrompt: string
@@ -12,7 +21,7 @@ export async function generateStructuredJson<T>(params: {
 }): Promise<{ result: T; rawResponse: any; processingTimeMs: number }> {
   const startTime = Date.now()
 
-  const response = await anthropic.messages.create({
+  const response = await getAnthropic().messages.create({
     model: 'claude-opus-4-7',
     max_tokens: params.maxTokens || 3000,
     system: params.systemPrompt,

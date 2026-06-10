@@ -1,6 +1,17 @@
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Lazy singleton — avoid constructing the SDK at module scope so a missing
+// RESEND_API_KEY never participates in `next build`.
+let _resend: Resend | null = null
+function getResend(): Resend {
+  if (_resend) return _resend
+  const apiKey = process.env.RESEND_API_KEY
+  if (!apiKey) {
+    throw new Error('RESEND_API_KEY is not configured')
+  }
+  _resend = new Resend(apiKey)
+  return _resend
+}
 
 const FROM = process.env.RESEND_FROM_EMAIL || 'PawCheck <hello@pawcheck.app>'
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://pawcheck.app'
@@ -17,7 +28,7 @@ export async function sendVaccineReminderEmail(params: {
       ? `${params.petName}'s ${params.vaccineName} is overdue`
       : `${params.petName}'s ${params.vaccineName} is due in ${params.daysUntilDue} days`
 
-  return resend.emails.send({
+  return getResend().emails.send({
     from: FROM,
     to: params.to,
     subject,
@@ -50,7 +61,7 @@ export async function sendVaccineReminderEmail(params: {
 }
 
 export async function sendWelcomeEmail(params: { to: string; name: string }) {
-  return resend.emails.send({
+  return getResend().emails.send({
     from: FROM,
     to: params.to,
     subject: 'Welcome to PawCheck 🐾',
@@ -84,7 +95,7 @@ export async function sendCommunityCommentEmail(params: {
   commenterName: string
   postId: string
 }) {
-  return resend.emails.send({
+  return getResend().emails.send({
     from: FROM,
     to: params.to,
     subject: `${params.commenterName} commented on your post`,

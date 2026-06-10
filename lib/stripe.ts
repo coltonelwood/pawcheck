@@ -1,9 +1,23 @@
 import Stripe from 'stripe'
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-02-24.acacia',
-  typescript: true,
-})
+// Lazy singleton — instantiating Stripe at module scope crashes the build
+// when STRIPE_SECRET_KEY is absent (e.g. during `next build` env collection,
+// or in this deployment where billing runs through App Store IAP, not Stripe).
+// Construct it on first use inside a request handler instead.
+let _stripe: Stripe | null = null
+
+export function getStripe(): Stripe {
+  if (_stripe) return _stripe
+  const key = process.env.STRIPE_SECRET_KEY
+  if (!key) {
+    throw new Error('STRIPE_SECRET_KEY is not configured')
+  }
+  _stripe = new Stripe(key, {
+    apiVersion: '2025-02-24.acacia',
+    typescript: true,
+  })
+  return _stripe
+}
 
 export const STRIPE_PRICE_IDS = {
   monthly: process.env.NEXT_PUBLIC_STRIPE_MONTHLY_PRICE_ID!,
@@ -86,14 +100,14 @@ export async function createCheckoutSession(params: {
     sessionConfig.customer_email = params.email
   }
 
-  return stripe.checkout.sessions.create(sessionConfig)
+  return getStripe().checkout.sessions.create(sessionConfig)
 }
 
 export async function createBillingPortalSession(params: {
   customerId: string
   returnUrl: string
 }) {
-  return stripe.billingPortal.sessions.create({
+  return getStripe().billingPortal.sessions.create({
     customer: params.customerId,
     return_url: params.returnUrl,
   })

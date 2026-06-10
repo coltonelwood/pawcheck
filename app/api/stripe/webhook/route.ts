@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { headers } from 'next/headers'
-import { stripe } from '@/lib/stripe'
+import { getStripe } from '@/lib/stripe'
 import { createServiceRoleClient } from '@/lib/supabase/server'
 import Stripe from 'stripe'
 
@@ -14,6 +14,8 @@ export async function POST(request: NextRequest) {
   if (!signature) {
     return NextResponse.json({ error: 'No signature' }, { status: 400 })
   }
+
+  const stripe = getStripe()
 
   let event: Stripe.Event
   try {
