@@ -5,22 +5,30 @@ Live web: **https://pawcheck-web.vercel.app** · Repos: `coltonelwood/pawcheck` 
 
 ---
 
-## Executive verdict: 🟢 LAUNCH-READY pending 1 non-engineering item (legal review)
+## Executive verdict: 🟢 ENGINEERING-COMPLETE — iOS submission-ready pending your accounts
 
-_Updated 2026-06-11 (session 2)._ All engineering blockers are closed and verified. The only remaining gate is **legal sign-off** on Privacy/Terms (not something code can finish).
+_Updated 2026-06-11 (session 3)._ The iOS app is technically ready to submit. Remaining gates are all **account/credential/legal** actions only you can do (Apple enrollment, Anthropic funding, Voyage key, Stripe live keys, attorney sign-off) — no engineering work blocks submission.
 
-**Closed since the last verdict:**
+**Closed this session (3):**
+- 🔴 **CRITICAL bug found + fixed — mobile API auth was broken.** The web API only authenticated via cookies, so the iOS app's Bearer token 401'd on every AI call (latent — never hit a funded key). New `getRouteContext()` accepts cookie *or* bearer; **verified live** (free→402, active→entitled, cancel→402, all via mobile bearer).
+- ✅ **Subscription loop verified end-to-end** (web Stripe checkout architecture): entitlement → gated endpoints → cancellation downgrade. Added a "Refresh subscription" action and **removed App-Review-unsafe "avoid app-store fees" copy** (neutral language only).
+- ✅ **Mobile hardening (H3 resolved):** HEIC→JPEG + downscale/compress before upload; loading/error states on the main screens; spinners instead of blank detail screens.
+- ✅ **Domain-swap ready:** all URLs parameterized (web `NEXT_PUBLIC_APP_URL` + `metadataBase`; mobile `lib/config.ts`); `DOMAIN_SWAP.md` runbook.
+- ✅ **App Store kit:** bundle id `com.purelyticlabs.pawcheck`, honest permission strings, when-in-use location; `APP_STORE_LISTING.md`, `PRIVACY_LABELS.md`, `REVIEW_NOTES.md` + a live-seeded premium demo account.
+
+**Closed in session 2:**
 - ✅ **Pet photos no longer world-readable** — `pet-photos` bucket is now PRIVATE; all surfaces (web + mobile) render via short-lived owner-scoped signed URLs. Verified live (raw URL → 4xx, owner signed URL → 200).
 - ✅ **Next.js upgraded 14.2.x → 15.5.19** — patches the DoS/SSRF advisories (no longer in `npm audit`). Full async-request-API migration; build + 21 tests + lint all green; redeployed and live-verified.
 - ✅ **Per-IP rate limiting** added (fail-closed) on the AI/assessment endpoints + an auth guard on login/signup.
 - ✅ Plus the session-1 fixes: RLS/RPC hardening (self-grant premium, quota reset, queries tampering), atomic free-tier, security headers, account deletion, prompt-injection fence, open-redirect, Stripe webhook bug, mobile error boundary.
 
-**Remaining before public launch / App Review:**
-1. **🟠 LEGAL (not code) — Privacy Policy & Terms need attorney review.** User-visible "template" banners and `[YOUR JURISDICTION]` placeholders were removed, but the content is still a generic template. A pet-**health** product carries real liability (UPVM, FDA, class-action). Have a lawyer finalize.
-2. **Fund the Anthropic account** (key is set; balance is $0 → assessments 500 until funded) and **add a real Voyage key** (knowledge-base embeddings).
-3. **Recommended (non-blocking):** the mobile loading/empty-state polish and HEIC/size image conversion (§3 H3); these don't crash (error boundary covers it) but improve UX.
+**Remaining — all on you (no engineering blockers):**
+1. **Apple Developer Program enrollment** → then `eas build --platform ios --profile production` (hand over Apple login) and `eas submit` after filling the `REPLACE_WITH_*` values in `eas.json`.
+2. **Fund the Anthropic account** (key set; $0 balance → assessments 500 until funded) and **add a real Voyage key** (knowledge embeddings).
+3. **Provision live Stripe** (login + create "PawCheck Pro" $14.99/mo & $79/yr + webhook → `/api/stripe/webhook` + set `STRIPE_*` env). The full loop downstream of the webhook is verified; only real keys remain.
+4. **Attorney review** of Privacy/Terms (pet-health liability — content is a solid template, banners/placeholders removed).
 
-New this session: **photo-optional assessments** shipped (web + mobile) — Describe and Guided-questionnaire paths alongside the photo flow, all feeding the same pipeline (urgency, history, free-tier, disclaimers, RAG, IP+user rate limits).
+Submission docs: `APP_STORE_LISTING.md`, `PRIVACY_LABELS.md`, `REVIEW_NOTES.md`, `DOMAIN_SWAP.md` (bundle root + web repo).
 
 ---
 
