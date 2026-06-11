@@ -73,20 +73,22 @@ export async function POST(request: NextRequest) {
       case 'customer.subscription.updated':
       case 'customer.subscription.created': {
         const subscription = event.data.object as Stripe.Subscription
-        const userId = subscription.metadata?.user_id
 
-        if (!userId) {
-          // Fallback: lookup by customer ID
-          const { data: profile } = await supabase
-            .from('profiles')
-            .select('id')
-            .eq('stripe_customer_id', subscription.customer as string)
-            .single()
-          
-          if (!profile) {
-            console.error('Could not find user for subscription')
-            break
-          }
+        // Verify we actually have a matching profile before updating, so a
+        // subscription event for an unknown customer doesn't silently no-op.
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('id')
+          .eq('stripe_customer_id', subscription.customer as string)
+          .single()
+
+        if (!profile) {
+          console.error(
+            'No profile for stripe_customer_id',
+            subscription.customer,
+            '- subscription event skipped'
+          )
+          break
         }
 
         const tier = subscription.items.data[0].price.recurring?.interval === 'year'
@@ -103,7 +105,7 @@ export async function POST(request: NextRequest) {
               subscription.current_period_end * 1000
             ).toISOString(),
           })
-          .eq('stripe_customer_id', subscription.customer as string)
+          .eq('id', profile.id)
 
         break
       }
