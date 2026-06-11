@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createClient } from '@/lib/supabase/server'
+import { getRouteContext } from '@/lib/supabase/route'
 import { searchNearbyVets, geocodeZip } from '@/lib/google-places'
 import { checkIpRateLimit } from '@/lib/ip-rate-limit'
 import { z } from 'zod'
@@ -16,8 +16,7 @@ const RequestSchema = z.object({
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = await createClient()
-    const { data: { user } } = await supabase.auth.getUser()
+    const { supabase, user } = await getRouteContext(request)
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
     const ipRl = await checkIpRateLimit(request, 'vets')

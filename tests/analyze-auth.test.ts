@@ -1,11 +1,12 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 
-// Mock the Supabase server module so no real DB/cookies are needed.
-// Default: no authenticated user.
-const getUser = vi.fn(async () => ({ data: { user: null as any } }))
+// Control the authenticated user per test via the dual-auth route helper.
+let mockUser: { id: string } | null = null
+vi.mock('@/lib/supabase/route', () => ({
+  getRouteContext: async () => ({ supabase: {}, user: mockUser }),
+}))
+// IP rate limiter uses the service client; return a low count so it allows through.
 vi.mock('@/lib/supabase/server', () => ({
-  createClient: () => ({ auth: { getUser } }),
-  // IP rate limiter uses this; return a low count so it allows through.
   createServiceRoleClient: () => ({ rpc: async () => ({ data: 1, error: null }) }),
 }))
 
@@ -20,19 +21,19 @@ function post(body: unknown) {
 }
 
 describe('/api/analyze auth + paywall (paid AI endpoint)', () => {
-  beforeEach(() => getUser.mockResolvedValue({ data: { user: null as any } }))
+  beforeEach(() => {
+    mockUser = null
+  })
 
   it('rejects unauthenticated requests with 401 before any AI work', async () => {
-    const res = await POST(post({ pet_id: 'x', photo_url: 'http://x/y.jpg' }))
+    const res = await POST(post({ pet_id: 'x', photo_path: 'u/1.jpg' }))
     expect(res.status).toBe(401)
     const json = await res.json()
     expect(json.error).toBe('Unauthorized')
-    expect(getUser).toHaveBeenCalled()
   })
 
   it('rejects malformed input with 400 for an authenticated user', async () => {
-    getUser.mockResolvedValue({ data: { user: { id: 'user_1' } as any } })
-    // missing photo_url / bad pet_id -> zod validation fails
+    mockUser = { id: 'user_1' }
     const res = await POST(post({ pet_id: 'not-a-uuid' }))
     expect(res.status).toBe(400)
   })
