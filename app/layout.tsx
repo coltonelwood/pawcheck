@@ -2,7 +2,11 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import PWAManager from '@/components/PWAManager'
 
+// Single source of truth for the site URL — swapping domains is one env change.
+const SITE_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://pawcheck.app'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: 'PawCheck — AI Pet Health Assessment',
   description:
     "Photograph your pet's concern. Get instant AI-powered health guidance with urgency assessment and clear next steps. Not a substitute for veterinary care.",
@@ -30,7 +34,7 @@ export const metadata: Metadata = {
     description:
       'Instant AI-powered health guidance for your dog or cat. Photograph the concern, get an urgency assessment and clear next steps.',
     type: 'website',
-    url: 'https://pawcheck.app',
+    url: SITE_URL,
   },
   twitter: {
     card: 'summary_large_image',
