@@ -22,7 +22,9 @@ export async function retrieveKnowledge(
     const { data, error } = await supabase.rpc('match_knowledge_chunks', {
       query_embedding: JSON.stringify(embedding),
       match_count: opts.k ?? 6,
-      min_similarity: opts.minSimilarity ?? 0.5,
+      // multilingual-e5 has a high similarity baseline (~0.78); 0.82 keeps only
+      // genuinely on-topic clinical passages out of the injected context.
+      min_similarity: opts.minSimilarity ?? 0.82,
     })
     if (error) {
       console.error('Knowledge retrieval RPC error:', error.message)
