@@ -25,7 +25,7 @@ export interface PetContext {
 }
 
 export async function analyzePetPhoto(params: {
-  imageUrl: string
+  imageUrl?: string
   pet: PetContext
   userDescription?: string
   symptoms?: string[]
@@ -34,20 +34,34 @@ export async function analyzePetPhoto(params: {
 }): Promise<{ result: AnalysisResult; rawResponse: any; processingTimeMs: number }> {
   const startTime = Date.now()
 
-  // Fetch the image as base64 (Claude vision requires base64 or URL)
-  const imageResponse = await fetch(params.imageUrl)
-  if (!imageResponse.ok) {
-    throw new Error(`Failed to fetch image: ${imageResponse.statusText}`)
+  // Photo-optional: only fetch + attach the image when one was provided.
+  let imageBlock: Anthropic.ImageBlockParam | null = null
+  if (params.imageUrl) {
+    const imageResponse = await fetch(params.imageUrl)
+    if (!imageResponse.ok) {
+      throw new Error(`Failed to fetch image: ${imageResponse.statusText}`)
+    }
+    const contentType = imageResponse.headers.get('content-type') || 'image/jpeg'
+    const supportedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']
+    const mediaType = supportedTypes.includes(contentType) ? contentType : 'image/jpeg'
+    const imageBuffer = await imageResponse.arrayBuffer()
+    const base64Image = Buffer.from(imageBuffer).toString('base64')
+    imageBlock = {
+      type: 'image',
+      source: {
+        type: 'base64',
+        media_type: mediaType as 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp',
+        data: base64Image,
+      },
+    }
   }
-  
-  const contentType = imageResponse.headers.get('content-type') || 'image/jpeg'
-  const supportedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']
-  const mediaType = supportedTypes.includes(contentType) ? contentType : 'image/jpeg'
-  
-  const imageBuffer = await imageResponse.arrayBuffer()
-  const base64Image = Buffer.from(imageBuffer).toString('base64')
 
-  let userPrompt = buildAnalysisPrompt(params.pet, params.userDescription, params.symptoms)
+  let userPrompt = buildAnalysisPrompt(
+    params.pet,
+    params.userDescription,
+    params.symptoms,
+    !!params.imageUrl
+  )
 
   // Ground the assessment in retrieved veterinary literature when available.
   if (params.knowledgeContext) {
@@ -66,14 +80,7 @@ export async function analyzePetPhoto(params: {
       {
         role: 'user',
         content: [
-          {
-            type: 'image',
-            source: {
-              type: 'base64',
-              media_type: mediaType as 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp',
-              data: base64Image,
-            },
-          },
+          ...(imageBlock ? [imageBlock] : []),
           {
             type: 'text',
             text: userPrompt,

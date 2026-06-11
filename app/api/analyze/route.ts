@@ -4,17 +4,31 @@ import { analyzePetPhoto } from '@/lib/claude'
 import { checkRateLimit } from '@/lib/rate-limit'
 import { checkIpRateLimit } from '@/lib/ip-rate-limit'
 import { retrieveKnowledge, formatKnowledgeContext } from '@/lib/knowledge/retrieve'
+import { composeGuidedSummary } from '@/lib/assessment-questions'
 import { z } from 'zod'
 
 export const maxDuration = 60 // Allow up to 60s for Claude analysis
 
-const RequestSchema = z.object({
-  pet_id: z.string().uuid(),
-  // Storage path within the private pet-photos bucket, e.g. "{uid}/123.jpg".
-  photo_path: z.string().min(1).max(500),
-  description: z.string().max(4000).nullable().optional(),
-  symptoms: z.array(z.string().max(200)).max(30).nullable().optional(),
-})
+const RequestSchema = z
+  .object({
+    pet_id: z.string().uuid(),
+    input_method: z.enum(['photo', 'describe', 'guided']).default('photo'),
+    // Storage path within the private pet-photos bucket, e.g. "{uid}/123.jpg".
+    photo_path: z.string().min(1).max(500).nullable().optional(),
+    description: z.string().max(4000).nullable().optional(),
+    symptoms: z.array(z.string().max(200)).max(30).nullable().optional(),
+    guided: z
+      .object({
+        category: z.string().max(50),
+        answers: z.record(z.union([z.string().max(500), z.boolean()])),
+      })
+      .nullable()
+      .optional(),
+  })
+  // Photo-optional: require at least one form of input.
+  .refine((d) => d.photo_path || (d.description && d.description.trim()) || d.guided, {
+    message: 'Provide a photo, a description, or guided answers',
+  })
 
 export async function POST(request: NextRequest) {
   try {
@@ -42,12 +56,18 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       )
     }
-    const { pet_id, photo_path, description, symptoms } = validation.data
+    const { pet_id, input_method, photo_path, description, symptoms, guided } = validation.data
 
-    // Ensure the uploaded photo lives in the caller's own folder.
-    if (!photo_path.startsWith(`${user.id}/`)) {
+    // Ensure any uploaded photo lives in the caller's own folder.
+    if (photo_path && !photo_path.startsWith(`${user.id}/`)) {
       return NextResponse.json({ error: 'Invalid photo path' }, { status: 400 })
     }
+
+    // Compose the owner's text from the free-text description and/or guided answers.
+    const guidedSummary = guided ? composeGuidedSummary(guided) : ''
+    const composedDescription = [guidedSummary, description?.trim()]
+      .filter(Boolean)
+      .join(guidedSummary && description?.trim() ? '\n\nOwner adds: ' : '')
 
     // Rate limit (even paid users — protects Anthropic budget)
     const rl = await checkRateLimit(supabase, user.id, 'analyze')
@@ -104,10 +124,12 @@ export async function POST(request: NextRequest) {
       .insert({
         user_id: user.id,
         pet_id: pet_id,
-        // photo_url now stores the private-bucket object PATH, not a URL.
-        photo_url: photo_path,
-        description: description,
+        // photo_url now stores the private-bucket object PATH (or null), not a URL.
+        photo_url: photo_path ?? null,
+        description: composedDescription || null,
         symptoms: symptoms,
+        input_method: input_method,
+        structured_symptoms: guided ?? null,
         status: 'processing',
       })
       .select('id')
@@ -135,7 +157,8 @@ export async function POST(request: NextRequest) {
     const retrievalQuery = [
       pet.species,
       pet.breed,
-      description,
+      guided?.category,
+      composedDescription,
       ...(symptoms || []),
     ]
       .filter(Boolean)
@@ -143,20 +166,25 @@ export async function POST(request: NextRequest) {
     const passages = await retrieveKnowledge(retrievalQuery, { k: 6 })
     const knowledgeContext = formatKnowledgeContext(passages)
 
-    // Mint a short-lived signed URL for the private photo so Claude can fetch it.
-    const { data: signed } = await supabase.storage
-      .from('pet-photos')
-      .createSignedUrl(photo_path, 600)
-    if (!signed?.signedUrl) {
-      await supabase.rpc('refund_query_credit', { user_uuid: user.id })
-      await supabase.from('queries').update({ status: 'failed', error_message: 'Photo not found' }).eq('id', query.id)
-      return NextResponse.json({ error: 'Could not access the uploaded photo' }, { status: 400 })
+    // Mint a short-lived signed URL for the private photo so Claude can fetch it
+    // (only when this assessment actually includes a photo).
+    let signedPhotoUrl: string | undefined
+    if (photo_path) {
+      const { data: signed } = await supabase.storage
+        .from('pet-photos')
+        .createSignedUrl(photo_path, 600)
+      if (!signed?.signedUrl) {
+        await supabase.rpc('refund_query_credit', { user_uuid: user.id })
+        await supabase.from('queries').update({ status: 'failed', error_message: 'Photo not found' }).eq('id', query.id)
+        return NextResponse.json({ error: 'Could not access the uploaded photo' }, { status: 400 })
+      }
+      signedPhotoUrl = signed.signedUrl
     }
 
     try {
-      // Call Claude
+      // Call Claude (photo optional)
       const { result, rawResponse, processingTimeMs } = await analyzePetPhoto({
-        imageUrl: signed.signedUrl,
+        imageUrl: signedPhotoUrl,
         pet: {
           name: pet.name,
           species: pet.species,
@@ -166,7 +194,7 @@ export async function POST(request: NextRequest) {
           known_conditions: pet.known_conditions,
           current_medications: pet.current_medications,
         },
-        userDescription: description || undefined,
+        userDescription: composedDescription || undefined,
         symptoms: symptoms || undefined,
         knowledgeContext: knowledgeContext || undefined,
       })

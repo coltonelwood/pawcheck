@@ -89,16 +89,16 @@ export default async function QueryDetailPage({ params }: PageProps) {
       </div>
 
       {/* Photo and description */}
-      <div className="grid md:grid-cols-2 gap-6 mb-6">
-        <div className="bg-card rounded-2xl border border-cream-300/60 overflow-hidden">
-          {photoUrl && (
+      <div className={`grid gap-6 mb-6 ${photoUrl ? 'md:grid-cols-2' : ''}`}>
+        {photoUrl && (
+          <div className="bg-card rounded-2xl border border-cream-300/60 overflow-hidden">
             <img
               src={photoUrl}
               alt="Pet assessment"
               className="w-full aspect-square object-cover"
             />
-          )}
-        </div>
+          </div>
+        )}
         <div className="bg-card rounded-2xl border border-cream-300/60 p-6">
           <h2 className="font-display text-xl font-semibold text-ink mb-3">
             What we observed
