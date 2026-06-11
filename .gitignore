@@ -50,3 +50,4 @@ supabase/.temp
 logs
 *.log
 .env*
+eval/last-run.json
