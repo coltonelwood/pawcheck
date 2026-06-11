@@ -20,6 +20,14 @@ export default function LoginPage() {
     setLoading(true)
     setError(null)
 
+    // Per-IP throttle (credential-stuffing defense-in-depth).
+    const guard = await fetch('/api/auth/guard', { method: 'POST' })
+    if (guard.status === 429) {
+      setError('Too many attempts from your network. Please wait and try again.')
+      setLoading(false)
+      return
+    }
+
     const supabase = createClient()
     const { error: loginError } = await supabase.auth.signInWithPassword({
       email,

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { searchNearbyVets, geocodeZip } from '@/lib/google-places'
+import { checkIpRateLimit } from '@/lib/ip-rate-limit'
 import { z } from 'zod'
 
 export const maxDuration = 30
@@ -18,6 +19,14 @@ export async function POST(request: NextRequest) {
     const supabase = createClient()
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+
+    const ipRl = await checkIpRateLimit(request, 'vets')
+    if (!ipRl.allowed) {
+      return NextResponse.json(
+        { error: 'Too many requests from your network. Please try again later.' },
+        { status: 429, headers: { 'Retry-After': String(ipRl.retry_after_seconds ?? 3600) } }
+      )
+    }
 
     const body = await request.json()
     const validation = RequestSchema.safeParse(body)

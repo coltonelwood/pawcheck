@@ -23,6 +23,13 @@ function SignupForm() {
     setLoading(true)
     setError(null)
 
+    const guard = await fetch('/api/auth/guard', { method: 'POST' })
+    if (guard.status === 429) {
+      setError('Too many attempts from your network. Please wait and try again.')
+      setLoading(false)
+      return
+    }
+
     const supabase = createClient()
     const { error: signupError } = await supabase.auth.signUp({
       email,

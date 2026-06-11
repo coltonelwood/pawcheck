@@ -5,7 +5,8 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 const getUser = vi.fn(async () => ({ data: { user: null as any } }))
 vi.mock('@/lib/supabase/server', () => ({
   createClient: () => ({ auth: { getUser } }),
-  createServiceRoleClient: () => ({}),
+  // IP rate limiter uses this; return a low count so it allows through.
+  createServiceRoleClient: () => ({ rpc: async () => ({ data: 1, error: null }) }),
 }))
 
 import { POST } from '@/app/api/analyze/route'

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { analyzePetPhoto } from '@/lib/claude'
 import { checkRateLimit } from '@/lib/rate-limit'
+import { checkIpRateLimit } from '@/lib/ip-rate-limit'
 import { retrieveKnowledge, formatKnowledgeContext } from '@/lib/knowledge/retrieve'
 import { z } from 'zod'
 
@@ -21,6 +22,15 @@ export async function POST(request: NextRequest) {
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    // Per-IP rate limit (catches abuse across many accounts from one IP).
+    const ipRl = await checkIpRateLimit(request, 'analyze')
+    if (!ipRl.allowed) {
+      return NextResponse.json(
+        { error: 'Too many requests from your network. Please try again later.' },
+        { status: 429, headers: { 'Retry-After': String(ipRl.retry_after_seconds ?? 3600) } }
+      )
     }
 
     // Parse and validate request
