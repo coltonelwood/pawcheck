@@ -9,7 +9,7 @@
 import { createServiceRoleClient } from '@/lib/supabase/server'
 
 export const IP_LIMITS = {
-  analyze: { window_minutes: 60, max: 60 },
+  analyze: { window_minutes: 60, max: 150 },
   training: { window_minutes: 1440, max: 40 },
   nutrition: { window_minutes: 1440, max: 40 },
   vets: { window_minutes: 60, max: 120 },

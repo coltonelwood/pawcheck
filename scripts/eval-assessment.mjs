@@ -26,8 +26,14 @@ const argLimit = Number((process.argv.find((a) => a.startsWith('--limit=')) || '
 const concurrency = Number((process.argv.find((a) => a.startsWith('--concurrency=')) || '').split('=')[1]) || 4
 if (!URL || !ANON) { console.error('Set SUPABASE_URL and SUPABASE_ANON_KEY'); process.exit(1) }
 
+const catFilter = (process.argv.find((a) => a.startsWith('--category=')) || '').split('=')[1]
 const __dir = path.dirname(fileURLToPath(import.meta.url))
-const cases = JSON.parse(fs.readFileSync(path.join(__dir, '..', 'eval', 'golden-set.json'), 'utf8')).slice(0, argLimit)
+let cases = JSON.parse(fs.readFileSync(path.join(__dir, '..', 'eval', 'golden-set.json'), 'utf8'))
+if (catFilter) {
+  const want = catFilter.split(',')
+  cases = cases.filter((c) => want.includes(c.category))
+}
+cases = cases.slice(0, argLimit)
 
 const BAND = { green: 0, yellow: 1, red: 2 }
 

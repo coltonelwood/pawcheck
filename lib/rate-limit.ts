@@ -10,8 +10,9 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 
 export const RATE_LIMITS = {
-  // Photo assessments: 30 per hour per user
-  analyze: { window_minutes: 60, max: 30, rpc: 'recent_query_count' },
+  // Assessments: one assessment can now be up to 3 calls (initial + 2
+  // clarification rounds), so budget ~20 full assessments/hour per user.
+  analyze: { window_minutes: 60, max: 60, rpc: 'recent_query_count' },
   // Training plan generation: 10 per day per user
   training: { window_hours: 24, max: 10, rpc: 'recent_training_count' },
   // Nutrition plan generation: 10 per day per user

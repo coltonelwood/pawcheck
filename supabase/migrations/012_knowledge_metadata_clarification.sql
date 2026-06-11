@@ -11,7 +11,9 @@ alter table public.knowledge_documents
   add column if not exists source_name text;
 
 -- (A) Retrieval RPC now also returns the human-readable SOURCE NAME (for the
--- "Sources" citation UI) plus species/topic tags.
+-- "Sources" citation UI) plus species/topic tags. Drop first — the return
+-- signature changes, which CREATE OR REPLACE cannot do.
+drop function if exists public.match_knowledge_chunks(vector, int, float);
 create or replace function public.match_knowledge_chunks(
   query_embedding vector(1024),
   match_count int default 6,
