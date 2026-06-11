@@ -5,7 +5,7 @@ import { Plus, Calendar, ChevronRight, Syringe } from 'lucide-react'
 import { calculateAge } from '@/lib/utils'
 
 export default async function PetsPage() {
-  const supabase = createClient()
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return null
 

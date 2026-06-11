@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
     const { data } = await tokenClient.auth.getUser(bearer)
     userId = data.user?.id ?? null
   } else {
-    const cookieStore = cookies()
+    const cookieStore = await cookies()
     const cookieClient = createServerClient(url, anon, {
       cookies: {
         get: (name: string) => cookieStore.get(name)?.value,

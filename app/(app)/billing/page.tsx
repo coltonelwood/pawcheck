@@ -7,7 +7,7 @@ import BillingPortalButton from '@/components/BillingPortalButton'
 import DeleteAccountButton from '@/components/DeleteAccountButton'
 
 export default async function BillingPage() {
-  const supabase = createClient()
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return null
 

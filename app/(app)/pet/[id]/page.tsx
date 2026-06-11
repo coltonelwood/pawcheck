@@ -7,18 +7,19 @@ import { calculateAge, formatDate } from '@/lib/utils'
 import DeletePetButton from '@/components/DeletePetButton'
 
 interface PageProps {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
 export default async function PetDetailPage({ params }: PageProps) {
-  const supabase = createClient()
+  const supabase = await createClient()
+  const { id } = await params
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return null
 
   const { data: pet, error } = await supabase
     .from('pets')
     .select('*')
-    .eq('id', params.id)
+    .eq('id', id)
     .eq('user_id', user.id)
     .single()
 
@@ -33,19 +34,19 @@ export default async function PetDetailPage({ params }: PageProps) {
     supabase
       .from('queries')
       .select('id', { count: 'exact', head: true })
-      .eq('pet_id', params.id),
+      .eq('pet_id', id),
     supabase
       .from('training_plans')
       .select('id', { count: 'exact', head: true })
-      .eq('pet_id', params.id),
+      .eq('pet_id', id),
     supabase
       .from('nutrition_plans')
       .select('id', { count: 'exact', head: true })
-      .eq('pet_id', params.id),
+      .eq('pet_id', id),
     supabase
       .from('vaccines')
       .select('id, name, due_date')
-      .eq('pet_id', params.id)
+      .eq('pet_id', id)
       .not('due_date', 'is', null)
       .order('due_date', { ascending: true })
       .limit(3),

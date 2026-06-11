@@ -25,9 +25,10 @@ const CATEGORY_COLORS: Record<string, string> = {
 export default async function CommunityPage({
   searchParams,
 }: {
-  searchParams: { category?: string }
+  searchParams: Promise<{ category?: string }>
 }) {
-  const supabase = createClient()
+  const supabase = await createClient()
+  const { category } = await searchParams
   const { data: { user } } = await supabase.auth.getUser()
 
   let query = supabase
@@ -42,8 +43,8 @@ export default async function CommunityPage({
     .order('created_at', { ascending: false })
     .limit(50)
 
-  if (searchParams.category) {
-    query = query.eq('category', searchParams.category)
+  if (category) {
+    query = query.eq('category', category)
   }
 
   const { data: posts } = await query
@@ -72,7 +73,7 @@ export default async function CommunityPage({
         <Link
           href="/community"
           className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${
-            !searchParams.category
+            !category
               ? 'bg-forest-600 text-cream-100 border-forest-600'
               : 'bg-transparent text-ink-soft border-cream-300 hover:border-forest-600/40'
           }`}
@@ -84,7 +85,7 @@ export default async function CommunityPage({
             key={key}
             href={`/community?category=${key}`}
             className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${
-              searchParams.category === key
+              category === key
                 ? 'bg-forest-600 text-cream-100 border-forest-600'
                 : 'bg-transparent text-ink-soft border-cream-300 hover:border-forest-600/40'
             }`}

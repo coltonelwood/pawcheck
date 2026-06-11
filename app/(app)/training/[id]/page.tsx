@@ -5,18 +5,19 @@ import { ArrowLeft, AlertCircle, CheckCircle2, Clock } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 interface PageProps {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
 export default async function TrainingPlanDetailPage({ params }: PageProps) {
-  const supabase = createClient()
+  const supabase = await createClient()
+  const { id } = await params
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return null
 
   const { data: plan, error } = await supabase
     .from('training_plans')
     .select('*, pet:pets(name, species, breed)')
-    .eq('id', params.id)
+    .eq('id', id)
     .eq('user_id', user.id)
     .single()
 

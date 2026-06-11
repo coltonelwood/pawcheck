@@ -8,18 +8,19 @@ import { formatDate } from '@/lib/utils'
 import { signPetPhoto } from '@/lib/storage'
 
 interface PageProps {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
 export default async function QueryDetailPage({ params }: PageProps) {
-  const supabase = createClient()
+  const supabase = await createClient()
+  const { id } = await params
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return null
 
   const { data: query, error } = await supabase
     .from('queries')
     .select('*, pet:pets(name, species, breed)')
-    .eq('id', params.id)
+    .eq('id', id)
     .eq('user_id', user.id)
     .single()
 

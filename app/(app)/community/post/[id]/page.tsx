@@ -25,11 +25,12 @@ const CATEGORY_COLORS: Record<string, string> = {
 }
 
 interface PageProps {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
 export default async function PostDetailPage({ params }: PageProps) {
-  const supabase = createClient()
+  const supabase = await createClient()
+  const { id } = await params
   const { data: { user } } = await supabase.auth.getUser()
 
   const { data: post, error } = await supabase
@@ -39,7 +40,7 @@ export default async function PostDetailPage({ params }: PageProps) {
       user:profiles!user_id(full_name),
       pet:pets(name, species)
     `)
-    .eq('id', params.id)
+    .eq('id', id)
     .single()
 
   if (error || !post || !post.is_published || post.is_flagged) notFound()
@@ -50,7 +51,7 @@ export default async function PostDetailPage({ params }: PageProps) {
       id, content, created_at, user_id,
       user:profiles!user_id(full_name)
     `)
-    .eq('post_id', params.id)
+    .eq('post_id', id)
     .eq('is_flagged', false)
     .order('created_at', { ascending: true })
 
@@ -60,7 +61,7 @@ export default async function PostDetailPage({ params }: PageProps) {
     const { data: like } = await supabase
       .from('community_likes')
       .select('post_id')
-      .eq('post_id', params.id)
+      .eq('post_id', id)
       .eq('user_id', user.id)
       .maybeSingle()
     userLiked = !!like

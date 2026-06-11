@@ -5,7 +5,7 @@ import { GraduationCap, Plus, ChevronRight } from 'lucide-react'
 import { formatRelativeTime } from '@/lib/utils'
 
 export default async function TrainingPage() {
-  const supabase = createClient()
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return null
 

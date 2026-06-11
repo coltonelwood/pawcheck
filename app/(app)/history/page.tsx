@@ -7,7 +7,7 @@ import { formatRelativeTime } from '@/lib/utils'
 import { signPetPhotos } from '@/lib/storage'
 
 export default async function HistoryPage() {
-  const supabase = createClient()
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return null
 
