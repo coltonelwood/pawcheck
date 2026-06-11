@@ -23,9 +23,11 @@ export const europePmcConnector: KnowledgeSourceConnector = {
       query,
       format: 'json',
       resultType: 'core',
-      pageSize: String(Math.min(limit, config.page_size || 25)),
-      sort: 'P_PDATE_D desc', // newest first
+      pageSize: String(Math.min(limit, config.page_size || 100)),
     })
+    // Default to Europe PMC's relevance ranking (best for a clinical corpus).
+    // Pass config.sort (e.g. "P_PDATE_D desc") only to override.
+    if (config.sort) params.set('sort', config.sort)
 
     const res = await fetch(`${SEARCH_URL}?${params.toString()}`, {
       headers: { Accept: 'application/json' },
