@@ -9,7 +9,8 @@ export const maxDuration = 60 // Allow up to 60s for Claude analysis
 
 const RequestSchema = z.object({
   pet_id: z.string().uuid(),
-  photo_url: z.string().url(),
+  // Storage path within the private pet-photos bucket, e.g. "{uid}/123.jpg".
+  photo_path: z.string().min(1).max(500),
   description: z.string().max(4000).nullable().optional(),
   symptoms: z.array(z.string().max(200)).max(30).nullable().optional(),
 })
@@ -31,7 +32,12 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       )
     }
-    const { pet_id, photo_url, description, symptoms } = validation.data
+    const { pet_id, photo_path, description, symptoms } = validation.data
+
+    // Ensure the uploaded photo lives in the caller's own folder.
+    if (!photo_path.startsWith(`${user.id}/`)) {
+      return NextResponse.json({ error: 'Invalid photo path' }, { status: 400 })
+    }
 
     // Rate limit (even paid users — protects Anthropic budget)
     const rl = await checkRateLimit(supabase, user.id, 'analyze')
@@ -88,7 +94,8 @@ export async function POST(request: NextRequest) {
       .insert({
         user_id: user.id,
         pet_id: pet_id,
-        photo_url: photo_url,
+        // photo_url now stores the private-bucket object PATH, not a URL.
+        photo_url: photo_path,
         description: description,
         symptoms: symptoms,
         status: 'processing',
@@ -126,10 +133,20 @@ export async function POST(request: NextRequest) {
     const passages = await retrieveKnowledge(retrievalQuery, { k: 6 })
     const knowledgeContext = formatKnowledgeContext(passages)
 
+    // Mint a short-lived signed URL for the private photo so Claude can fetch it.
+    const { data: signed } = await supabase.storage
+      .from('pet-photos')
+      .createSignedUrl(photo_path, 600)
+    if (!signed?.signedUrl) {
+      await supabase.rpc('refund_query_credit', { user_uuid: user.id })
+      await supabase.from('queries').update({ status: 'failed', error_message: 'Photo not found' }).eq('id', query.id)
+      return NextResponse.json({ error: 'Could not access the uploaded photo' }, { status: 400 })
+    }
+
     try {
       // Call Claude
       const { result, rawResponse, processingTimeMs } = await analyzePetPhoto({
-        imageUrl: photo_url,
+        imageUrl: signed.signedUrl,
         pet: {
           name: pet.name,
           species: pet.species,

@@ -148,17 +148,13 @@ export default function NewQueryPage() {
 
       if (uploadError) throw new Error(`Upload failed: ${uploadError.message}`)
 
-      const { data: { publicUrl } } = supabase.storage
-        .from('pet-photos')
-        .getPublicUrl(fileName)
-
-      // Call analyze API
+      // pet-photos is a private bucket — send the storage path; the server signs it.
       const response = await fetch('/api/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           pet_id: selectedPetId,
-          photo_url: publicUrl,
+          photo_path: fileName,
           description: description.trim() || null,
           symptoms: symptoms.length > 0 ? symptoms : null,
         }),

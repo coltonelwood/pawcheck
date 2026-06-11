@@ -5,6 +5,7 @@ import { ArrowLeft, AlertCircle, ShieldCheck, Stethoscope, Clock, Phone } from '
 import UrgencyBadge from '@/components/UrgencyBadge'
 import { Button } from '@/components/ui/button'
 import { formatDate } from '@/lib/utils'
+import { signPetPhoto } from '@/lib/storage'
 
 interface PageProps {
   params: { id: string }
@@ -33,6 +34,8 @@ export default async function QueryDetailPage({ params }: PageProps) {
   if (query.status === 'failed') {
     return <FailedState message={query.error_message} />
   }
+
+  const photoUrl = await signPetPhoto(supabase, query.photo_url)
 
   const urgencyBgClass = {
     green: 'from-forest-50 to-forest-100/50 border-forest-200',
@@ -88,9 +91,9 @@ export default async function QueryDetailPage({ params }: PageProps) {
       {/* Photo and description */}
       <div className="grid md:grid-cols-2 gap-6 mb-6">
         <div className="bg-card rounded-2xl border border-cream-300/60 overflow-hidden">
-          {query.photo_url && (
+          {photoUrl && (
             <img
-              src={query.photo_url}
+              src={photoUrl}
               alt="Pet assessment"
               className="w-full aspect-square object-cover"
             />

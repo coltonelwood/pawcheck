@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Camera, Plus, ChevronRight, Clock } from 'lucide-react'
 import UrgencyBadge from '@/components/UrgencyBadge'
 import { formatRelativeTime } from '@/lib/utils'
+import { signPetPhotos } from '@/lib/storage'
 
 export default async function DashboardPage() {
   const supabase = createClient()
@@ -28,6 +29,9 @@ export default async function DashboardPage() {
     .eq('user_id', user.id)
     .order('created_at', { ascending: false })
     .limit(5)
+
+  // Sign private pet-photo paths for display.
+  const photoUrls = await signPetPhotos(supabase, (recentQueries || []).map((q) => q.photo_url))
 
   const firstName = profile?.full_name?.split(' ')[0] || 'there'
   const hasPets = pets && pets.length > 0
@@ -149,10 +153,10 @@ export default async function DashboardPage() {
                     className="block bg-card rounded-xl border border-cream-300/60 p-5 hover:border-forest-600/30 transition-all"
                   >
                     <div className="flex items-center gap-4">
-                      {query.photo_url && (
+                      {query.photo_url && photoUrls.get(query.photo_url) && (
                         <div className="w-16 h-16 rounded-lg bg-cream-200 overflow-hidden flex-shrink-0">
                           <img
-                            src={query.photo_url}
+                            src={photoUrls.get(query.photo_url)}
                             alt=""
                             className="w-full h-full object-cover"
                           />
