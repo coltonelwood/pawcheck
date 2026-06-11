@@ -121,6 +121,11 @@ export async function processPendingDocuments(opts: { maxDocs?: number } = {}): 
     throw new Error('VOYAGE_API_KEY is not configured — cannot embed')
   }
 
+  // Preflight: verify the embedding API works before touching any documents.
+  // A bad/placeholder key aborts here so documents stay 'discovered' (re-tryable)
+  // instead of being individually marked 'error'.
+  await embedDocuments(['preflight'])
+
   const supabase = createServiceRoleClient()
   const { data: docs, error } = await supabase
     .from('knowledge_documents')
