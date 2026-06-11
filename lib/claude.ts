@@ -73,7 +73,7 @@ export async function analyzePetPhoto(params: {
   }
 
   const response = await getAnthropic().messages.create({
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     max_tokens: 2000,
     system: PET_HEALTH_SYSTEM_PROMPT,
     messages: [

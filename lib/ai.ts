@@ -30,7 +30,7 @@ export async function generateStructuredJson<T>(params: {
     : params.userPrompt
 
   const response = await getAnthropic().messages.create({
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     max_tokens: params.maxTokens || 3000,
     system: params.systemPrompt,
     messages: [{ role: 'user', content: userPrompt }],
