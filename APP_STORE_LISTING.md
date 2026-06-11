@@ -32,6 +32,8 @@ Tell PawCheck what's going on three ways — whichever fits:
 You get back a clear urgency level (monitor at home, see a vet soon, or seek care now), the most likely explanations for your vet to consider, what to do next, and questions to bring to your appointment.
 
 EVERYTHING IN PAWCHECK
+• Grounded in real veterinary literature — every assessment shows its sources
+• Asks smart follow-up questions when it needs more to narrow things down
 • Instant urgency assessment for symptoms you can — and can't — photograph
 • Possible-causes breakdown and clear, practical next steps
 • Emergency guidance that points you to urgent care fast when it's needed
