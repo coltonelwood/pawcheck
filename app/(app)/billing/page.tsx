@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { CheckCircle2, CreditCard, Sparkles } from 'lucide-react'
 import { formatDate } from '@/lib/utils'
 import BillingPortalButton from '@/components/BillingPortalButton'
+import DeleteAccountButton from '@/components/DeleteAccountButton'
 
 export default async function BillingPage() {
   const supabase = createClient()
@@ -125,6 +126,17 @@ export default async function BillingPage() {
             Medical Disclaimer
           </Link>
         </div>
+      </div>
+
+      {/* Danger zone */}
+      <div className="bg-card rounded-2xl border border-red-200/70 p-6 mt-6">
+        <h2 className="font-display text-xl font-semibold text-red-700 mb-2">
+          Danger zone
+        </h2>
+        <p className="text-sm text-ink-mute mb-4">
+          Permanently delete your account and all associated data.
+        </p>
+        <DeleteAccountButton />
       </div>
     </div>
   )
