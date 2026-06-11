@@ -1,0 +1,42 @@
+name: Knowledge ingest (24/7)
+
+# Continuously grows the veterinary knowledge base: discover new open-access
+# documents, then drain the embedding queue. Runs every 30 minutes.
+#
+# Requires two repo secrets (Settings -> Secrets and variables -> Actions):
+#   PAWCHECK_APP_URL  e.g. https://pawcheck-web.vercel.app
+#   CRON_SECRET       same value as the Vercel CRON_SECRET env var
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch: {} # allow manual runs from the Actions tab
+
+concurrency:
+  group: knowledge-ingest
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Discover new documents
+        run: |
+          curl -fsS -X POST "$APP_URL/api/knowledge/crawl" \
+            -H "Authorization: Bearer $CRON_SECRET" | head -c 2000
+        env:
+          APP_URL: ${{ secrets.PAWCHECK_APP_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+
+      - name: Embed pending documents (drain queue in several passes)
+        run: |
+          for i in 1 2 3 4 5 6; do
+            echo "--- embed pass $i ---"
+            curl -fsS -X POST "$APP_URL/api/knowledge/process?maxDocs=10" \
+              -H "Authorization: Bearer $CRON_SECRET" | head -c 2000
+            echo ""
+            sleep 5
+          done
+        env:
+          APP_URL: ${{ secrets.PAWCHECK_APP_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}

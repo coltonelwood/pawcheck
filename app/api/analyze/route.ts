@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { analyzePetPhoto } from '@/lib/claude'
 import { checkRateLimit } from '@/lib/rate-limit'
+import { retrieveKnowledge, formatKnowledgeContext } from '@/lib/knowledge/retrieve'
 import { z } from 'zod'
 
 export const maxDuration = 60 // Allow up to 60s for Claude analysis
@@ -119,6 +120,18 @@ export async function POST(request: NextRequest) {
         ) / 10
       : null
 
+    // Retrieve grounding passages from the veterinary knowledge base (fails soft).
+    const retrievalQuery = [
+      pet.species,
+      pet.breed,
+      description,
+      ...(symptoms || []),
+    ]
+      .filter(Boolean)
+      .join(' ')
+    const passages = await retrieveKnowledge(retrievalQuery, { k: 6 })
+    const knowledgeContext = formatKnowledgeContext(passages)
+
     try {
       // Call Claude
       const { result, rawResponse, processingTimeMs } = await analyzePetPhoto({
@@ -134,6 +147,7 @@ export async function POST(request: NextRequest) {
         },
         userDescription: description || undefined,
         symptoms: symptoms || undefined,
+        knowledgeContext: knowledgeContext || undefined,
       })
 
       // Update query with results

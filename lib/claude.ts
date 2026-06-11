@@ -29,6 +29,8 @@ export async function analyzePetPhoto(params: {
   pet: PetContext
   userDescription?: string
   symptoms?: string[]
+  /** Optional grounding passages from the veterinary knowledge base (RAG). */
+  knowledgeContext?: string
 }): Promise<{ result: AnalysisResult; rawResponse: any; processingTimeMs: number }> {
   const startTime = Date.now()
 
@@ -45,7 +47,16 @@ export async function analyzePetPhoto(params: {
   const imageBuffer = await imageResponse.arrayBuffer()
   const base64Image = Buffer.from(imageBuffer).toString('base64')
 
-  const userPrompt = buildAnalysisPrompt(params.pet, params.userDescription, params.symptoms)
+  let userPrompt = buildAnalysisPrompt(params.pet, params.userDescription, params.symptoms)
+
+  // Ground the assessment in retrieved veterinary literature when available.
+  if (params.knowledgeContext) {
+    userPrompt +=
+      '\n\n---\nRELEVANT VETERINARY LITERATURE (open-access sources, retrieved for this case). ' +
+      'Use it to inform your assessment where clinically applicable. Do not fabricate facts or ' +
+      'citations beyond what is provided, and never let it override clear visual red flags:\n\n' +
+      params.knowledgeContext
+  }
 
   const response = await getAnthropic().messages.create({
     model: 'claude-opus-4-7',

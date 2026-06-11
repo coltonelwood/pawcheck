@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { generateStructuredJson } from '@/lib/ai'
 import { checkRateLimit } from '@/lib/rate-limit'
+import { retrieveKnowledge, formatKnowledgeContext } from '@/lib/knowledge/retrieve'
 import {
   TRAINING_SYSTEM_PROMPT,
   buildTrainingPrompt,
@@ -112,10 +113,17 @@ export async function POST(request: NextRequest) {
       duration_weeks: input.duration_weeks,
     })
 
+    // Ground the plan in retrieved behavioural-veterinary literature (fails soft).
+    const passages = await retrieveKnowledge(
+      [pet.species, pet.breed, input.behavior_issue, input.goal].filter(Boolean).join(' '),
+      { k: 5 }
+    )
+
     const { result, rawResponse } = await generateStructuredJson<TrainingPlanResult>({
       systemPrompt: TRAINING_SYSTEM_PROMPT,
       userPrompt,
       validator: validateTrainingPlan,
+      knowledgeContext: formatKnowledgeContext(passages) || undefined,
     })
 
     // Save plan

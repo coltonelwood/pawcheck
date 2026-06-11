@@ -18,14 +18,22 @@ export async function generateStructuredJson<T>(params: {
   userPrompt: string
   validator: (parsed: any) => asserts parsed is T
   maxTokens?: number
+  /** Optional grounding passages from the veterinary knowledge base (RAG). */
+  knowledgeContext?: string
 }): Promise<{ result: T; rawResponse: any; processingTimeMs: number }> {
   const startTime = Date.now()
+
+  const userPrompt = params.knowledgeContext
+    ? `${params.userPrompt}\n\n---\nRELEVANT VETERINARY LITERATURE (open-access sources). ` +
+      `Use it to inform the plan where applicable; do not fabricate facts or citations ` +
+      `beyond what is provided:\n\n${params.knowledgeContext}`
+    : params.userPrompt
 
   const response = await getAnthropic().messages.create({
     model: 'claude-opus-4-7',
     max_tokens: params.maxTokens || 3000,
     system: params.systemPrompt,
-    messages: [{ role: 'user', content: params.userPrompt }],
+    messages: [{ role: 'user', content: userPrompt }],
   })
 
   const processingTimeMs = Date.now() - startTime

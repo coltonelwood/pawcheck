@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { generateStructuredJson } from '@/lib/ai'
 import { checkRateLimit } from '@/lib/rate-limit'
+import { retrieveKnowledge, formatKnowledgeContext } from '@/lib/knowledge/retrieve'
 import {
   NUTRITION_SYSTEM_PROMPT,
   buildNutritionPrompt,
@@ -125,10 +126,19 @@ export async function POST(request: NextRequest) {
       allergies: input.allergies,
     })
 
+    // Ground the plan in retrieved veterinary-nutrition literature (fails soft).
+    const passages = await retrieveKnowledge(
+      [pet.species, pet.breed, 'nutrition diet', input.goal, ...(input.allergies || [])]
+        .filter(Boolean)
+        .join(' '),
+      { k: 5 }
+    )
+
     const { result, rawResponse } = await generateStructuredJson<NutritionPlanResult>({
       systemPrompt: NUTRITION_SYSTEM_PROMPT,
       userPrompt,
       validator: validateNutritionPlan,
+      knowledgeContext: formatKnowledgeContext(passages) || undefined,
     })
 
     const { data: plan, error: insertError } = await supabase
