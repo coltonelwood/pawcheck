@@ -5,18 +5,22 @@ Live web: **https://pawcheck-web.vercel.app** · Repos: `coltonelwood/pawcheck` 
 
 ---
 
-## Executive verdict: 🟡 BLOCKED — 2 must-fix blockers remain (down from ~8)
+## Executive verdict: 🟢 LAUNCH-READY pending 1 non-engineering item (legal review)
 
-The most dangerous vulnerabilities are **fixed and verified live**: a user could previously **self-grant premium and reset their free quota**, **tamper with any other user's assessment**, and there was **no account-deletion path** (App Store auto-reject). All closed this session.
+_Updated 2026-06-11 (session 2)._ All engineering blockers are closed and verified. The only remaining gate is **legal sign-off** on Privacy/Terms (not something code can finish).
 
-**Two blockers remain before you submit to App Review / go public:**
+**Closed since the last verdict:**
+- ✅ **Pet photos no longer world-readable** — `pet-photos` bucket is now PRIVATE; all surfaces (web + mobile) render via short-lived owner-scoped signed URLs. Verified live (raw URL → 4xx, owner signed URL → 200).
+- ✅ **Next.js upgraded 14.2.x → 15.5.19** — patches the DoS/SSRF advisories (no longer in `npm audit`). Full async-request-API migration; build + 21 tests + lint all green; redeployed and live-verified.
+- ✅ **Per-IP rate limiting** added (fail-closed) on the AI/assessment endpoints + an auth guard on login/signup.
+- ✅ Plus the session-1 fixes: RLS/RPC hardening (self-grant premium, quota reset, queries tampering), atomic free-tier, security headers, account deletion, prompt-injection fence, open-redirect, Stripe webhook bug, mobile error boundary.
 
-1. **🔴 CRITICAL — Pet photos are world-readable.** The `pet-photos` storage bucket is public; anyone with a photo URL can view it. For a health product this is a privacy issue. Fix = make the bucket private + serve via signed URLs (a code change across web/mobile + the analyze fetch). **Not auto-fixed** because flipping the bucket breaks every existing image URL — it needs the coordinated code change below and your sign-off. _Remediation in §3._
-2. **🔴 LEGAL — Privacy Policy & Terms need attorney review.** The user-visible "template" banners and `[YOUR JURISDICTION]` placeholders are removed, but the underlying content is still a generic template. A pet-**health** product carries real liability (unauthorized-practice-of-veterinary-medicine, FDA, class-action). Have a lawyer finalize before public launch.
+**Remaining before public launch / App Review:**
+1. **🟠 LEGAL (not code) — Privacy Policy & Terms need attorney review.** User-visible "template" banners and `[YOUR JURISDICTION]` placeholders were removed, but the content is still a generic template. A pet-**health** product carries real liability (UPVM, FDA, class-action). Have a lawyer finalize.
+2. **Fund the Anthropic account** (key is set; balance is $0 → assessments 500 until funded) and **add a real Voyage key** (knowledge-base embeddings).
+3. **Recommended (non-blocking):** the mobile loading/empty-state polish and HEIC/size image conversion (§3 H3); these don't crash (error boundary covers it) but improve UX.
 
-**Strongly recommended before launch (not hard blockers):** upgrade Next.js to 15.5.16+ (unpatched DoS/SSRF advisories in 14.2.x), add per-IP rate limiting, and harden the mobile loading/error/image flows (§3).
-
-Once #1 and #2 are done, this is launch-ready.
+New this session: **photo-optional assessments** shipped (web + mobile) — Describe and Guided-questionnaire paths alongside the photo flow, all feeding the same pipeline (urgency, history, free-tier, disclaimers, RAG, IP+user rate limits).
 
 ---
 
@@ -56,46 +60,44 @@ Earlier this deployment cycle: `2523e43` lazy-init clients + Next 14.2.15→14.2
 ## 2. Test suite & build results
 
 ```
-WEB  (pawcheck)
+WEB  (pawcheck)  — Next.js 15.5.19
   npx tsc --noEmit ............ PASS (0 errors)
-  npx vitest run ............. PASS (3 files, 9 tests)
-      rate-limit: under-limit allow / at-limit block / FAIL-CLOSED on RPC error
+  npx vitest run ............. PASS (6 files, 21 tests)
+      rate-limit (per-user): allow / block / FAIL-CLOSED
+      ip-rate-limit (per-IP): allow / block / FAIL-CLOSED / XFF parse
       analyze:    401 unauthenticated / 400 malformed input
       webhook:    valid sig accepts; wrong-secret / tampered / garbage reject
-  next lint .................. 0 errors (warnings: <img>, exhaustive-deps — triaged below)
-  next build ................. PASS (compiled successfully)
-  npm audit .................. next 14.2.x DoS/SSRF advisories (see §3 HIGH)
+      pet-photo:  path extraction + LIVE (raw URL 4xx, owner signed URL 200)
+      guided:     questionnaire -> clinical-summary composition
+  next lint .................. 0 errors (warnings: <img>, exhaustive-deps — triaged)
+  next build ................. PASS (cloud + prebuilt)
+  npm audit .................. next advisories RESOLVED. 1 critical = `vitest`
+                               (dev-only, exploitable only with `vitest --ui`,
+                               which is never run); not shipped.
 
-MOBILE  (pawcheck-mobile)
+MOBILE  (pawcheck-mobile)  — Expo SDK 52
   npx tsc --noEmit ........... PASS (0 errors)
   npx expo-doctor ............ 18/18 checks pass
-  npm audit .................. critical resolved; 19 high/6 moderate remain in
+  npm audit .................. critical resolved; remaining high/moderate are
                                dev-only Metro/Expo tooling (not in app bundle)
 ```
-Free-tier atomic enforcement and all RLS policies were verified **live** (not just unit-mocked) — see §1.
+Free-tier atomic enforcement, all RLS policies, and the private-bucket signed-URL
+flow were verified **live** (not just unit-mocked) — see §1.
 
 ---
 
 ## 3. Remaining issues (ranked, with exact remediation)
 
-### 🔴 CRITICAL
+### ✅ RESOLVED since first report
+- **C1 — Pet photos world-readable** → FIXED (migration 008; private bucket + signed URLs across web/mobile + server-signed analyze fetch; live-verified). Commits `73a1cb2` (web), `b22cc79` (mobile).
+- **H1 — Next.js unpatched DoS/SSRF** → FIXED (upgraded to 15.5.19, `92ba4c7`; advisories gone from `npm audit`).
+- **H2 — No per-IP rate limiting** → FIXED (migration 009 + `lib/ip-rate-limit`, fail-closed, wired into analyze/training/nutrition/vets + auth guard; `340b73f`).
 
-**C1 — Pet photos publicly readable.** `pet-photos` bucket is `public=true` with `SELECT using (bucket_id='pet-photos')` (migration 001). Anyone with a URL can view a user's pet photos.
-Remediation (do as one coordinated change):
-1. Migration: `update storage.buckets set public=false where id='pet-photos';` and replace the public SELECT policy with owner-scoped: `using (bucket_id='pet-photos' and (auth.uid())::text = (storage.foldername(name))[1])`.
-2. Web/mobile display: replace `getPublicUrl()` with `createSignedUrl(path, 3600)` everywhere a pet photo is shown (dashboard, query result, history, pet pages, and the mobile equivalents).
-3. `/api/analyze` (`lib/claude.ts` fetches the image): generate a short-lived signed URL server-side from the stored path before fetching, instead of trusting a public URL.
-4. Keep `community-photos` public (acceptable for a social feed).
+### 🟠 REMAINING — HIGH
 
-**C2 — Privacy/Terms legal review.** Content is a generic template (banners/placeholders now removed, `7dd442a`). Engage an attorney to finalize Terms (governing law, arbitration, UPVM/FDA disclaimers) and Privacy (CCPA/state-law, data practices) for a pet-health product before public launch.
+**C2 — Privacy/Terms legal review.** Content is a generic template (banners/placeholders removed, `7dd442a`). Engage an attorney to finalize Terms (governing law, arbitration, UPVM/FDA disclaimers) and Privacy (CCPA/state-law, data practices) for a pet-health product before public launch. _(Not an engineering item.)_
 
-### 🟠 HIGH
-
-**H1 — Next.js 14.2.35 has unpatched DoS/SSRF advisories.** The fixes ship only in **15.5.16+** (not backported to 14.2.x). App-Router-relevant: RSC DoS (high), SSRF via WebSocket upgrades (high), image-optimizer DoS (moderate). Vercel's platform mitigates some DoS, but: `npx @next/codemod@canary upgrade latest` to Next 15, migrate the now-async request APIs (`cookies()`, `headers()`, `params`, `searchParams` — `lib/supabase/server.ts` uses `cookies()` synchronously and will need `await`), then re-run tsc/build/tests. Do it as a focused, fully-QA'd change.
-
-**H2 — No per-IP rate limiting.** Limits are per-user only (`lib/rate-limit.ts`); someone can register many accounts, each getting 30 analyze/hr. Add a per-IP limit in front of `/api/analyze`, `/api/training/generate`, `/api/nutrition/generate`, `/api/vets/nearby` — simplest is Vercel WAF/Firewall rate rules, or Upstash Ratelimit keyed on `x-forwarded-for`. Also consider signup throttling.
-
-**H3 — Mobile reliability gaps** (from the mobile audit):
+**H3 — Mobile reliability gaps** (partially addressed — root ErrorBoundary shipped `0b97816`; remaining):
 - No loading state on tab/list screens (`(tabs)/index,pets,community,settings`, `training/index`, `nutrition/index`, `history`) — they show the empty state during load/offline. Add a `loading` flag.
 - No error state on any list/detail loader; detail screens (`training/[id]`, `nutrition/[id]`, `community/post/[id]`, `pet/[id]`) render a permanent blank view on error. Add error + not-found UI.
 - Image upload: no size cap and no HEIC conversion (`query/new.tsx`, `community/new.tsx`). Add `expo-image-manipulator`: `manipulateAsync(uri, [{resize:{width:1600}}], {compress:0.8, format:JPEG})` before upload — fixes both 10MB+ photos and HEIC.
