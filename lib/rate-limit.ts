@@ -42,11 +42,17 @@ export async function checkRateLimit(
 
   const { data, error } = await supabase.rpc(cfg.rpc as any, args)
 
-  // If the RPC fails, fail open (allow) but log — don't lock users out
-  // because of a database hiccup.
+  // If the RPC fails, fail CLOSED for the paid AI endpoints — an open wallet is
+  // worse than a transient "try again". The caller retries on the next request.
   if (error) {
     console.error(`Rate limit RPC failed for ${key}:`, error.message)
-    return { allowed: true, limit: cfg.max, used: 0, remaining: cfg.max }
+    return {
+      allowed: false,
+      limit: cfg.max,
+      used: cfg.max,
+      remaining: 0,
+      retry_after_seconds: getRetryAfter(key),
+    }
   }
 
   const used = (data as number) ?? 0

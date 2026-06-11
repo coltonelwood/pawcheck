@@ -10,8 +10,8 @@ export const maxDuration = 60 // Allow up to 60s for Claude analysis
 const RequestSchema = z.object({
   pet_id: z.string().uuid(),
   photo_url: z.string().url(),
-  description: z.string().nullable().optional(),
-  symptoms: z.array(z.string()).nullable().optional(),
+  description: z.string().max(4000).nullable().optional(),
+  symptoms: z.array(z.string().max(200)).max(30).nullable().optional(),
 })
 
 export async function POST(request: NextRequest) {
@@ -32,31 +32,6 @@ export async function POST(request: NextRequest) {
       )
     }
     const { pet_id, photo_url, description, symptoms } = validation.data
-
-    // Check quota
-    const { data: profile, error: profileError } = await supabase
-      .from('profiles')
-      .select('subscription_status, free_queries_used')
-      .eq('id', user.id)
-      .single()
-
-    if (profileError || !profile) {
-      return NextResponse.json({ error: 'Profile not found' }, { status: 404 })
-    }
-
-    const freeLimit = parseInt(process.env.FREE_QUERY_LIMIT || '3')
-    const isSubscribed = profile.subscription_status === 'active'
-    const hasFreeQueries = profile.free_queries_used < freeLimit
-
-    if (!isSubscribed && !hasFreeQueries) {
-      return NextResponse.json(
-        {
-          error: 'Free query limit reached',
-          requires_upgrade: true,
-        },
-        { status: 402 }
-      )
-    }
 
     // Rate limit (even paid users — protects Anthropic budget)
     const rl = await checkRateLimit(supabase, user.id, 'analyze')
@@ -90,6 +65,23 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Pet not found' }, { status: 404 })
     }
 
+    // Atomically reserve a query credit (free-tier gate, race-safe). Returns
+    // false when a non-subscriber has used all free queries. Refunded below if
+    // the AI call fails, so users are never charged for a failed assessment.
+    const { data: allowed, error: creditError } = await supabase.rpc('consume_query_credit', {
+      user_uuid: user.id,
+    })
+    if (creditError) {
+      console.error('consume_query_credit failed:', creditError.message)
+      return NextResponse.json({ error: 'Unable to verify quota' }, { status: 500 })
+    }
+    if (!allowed) {
+      return NextResponse.json(
+        { error: 'Free query limit reached', requires_upgrade: true },
+        { status: 402 }
+      )
+    }
+
     // Create the query record (pending status)
     const { data: query, error: queryError } = await supabase
       .from('queries')
@@ -105,6 +97,8 @@ export async function POST(request: NextRequest) {
       .single()
 
     if (queryError || !query) {
+      // Reservation was made but we couldn't record the query — give the credit back.
+      await supabase.rpc('refund_query_credit', { user_uuid: user.id })
       return NextResponse.json(
         { error: 'Failed to create query' },
         { status: 500 }
@@ -170,14 +164,16 @@ export async function POST(request: NextRequest) {
         })
         .eq('id', query.id)
 
-      // Increment usage count
-      await supabase.rpc('increment_query_count', { user_uuid: user.id })
+      // Credit was already consumed atomically by consume_query_credit above.
 
       return NextResponse.json({
         query_id: query.id,
         result: result,
       })
     } catch (aiError: any) {
+      // AI call failed — refund the reserved credit so the user isn't charged.
+      await supabase.rpc('refund_query_credit', { user_uuid: user.id })
+
       // Mark query as failed
       await supabase
         .from('queries')
