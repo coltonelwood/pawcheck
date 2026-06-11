@@ -17,6 +17,8 @@ export default function OfflinePage() {
         <p className="text-ink-mute mb-6">
           PawCheck needs an internet connection to analyze photos. Once you're back online, try again.
         </p>
+        {/* Intentional full-page reload to re-establish the connection. */}
+        {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
         <a
           href="/"
           className="inline-block px-6 py-3 bg-forest-600 text-cream-100 rounded-lg font-medium hover:bg-forest-700 transition-colors"
