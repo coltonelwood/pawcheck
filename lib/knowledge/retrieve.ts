@@ -38,6 +38,9 @@ export async function retrieveKnowledge(
       authors: r.authors,
       publishedAt: r.published_at,
       license: r.license,
+      sourceName: r.source_name ?? null,
+      species: r.species ?? null,
+      topicTags: r.topic_tags ?? null,
     }))
   } catch (err: any) {
     console.error('Knowledge retrieval failed:', err.message)
@@ -52,10 +55,31 @@ export async function retrieveKnowledge(
 export function formatKnowledgeContext(passages: RetrievedPassage[]): string {
   if (passages.length === 0) return ''
   const blocks = passages.map((p, i) => {
-    const cite = [p.title, p.authors?.slice(0, 3).join(', '), p.publishedAt?.slice(0, 4)]
+    const cite = [p.sourceName, p.title, p.authors?.slice(0, 3).join(', '), p.publishedAt?.slice(0, 4)]
       .filter(Boolean)
       .join(' — ')
-    return `[${i + 1}] ${cite}${p.url ? `\n${p.url}` : ''}\n${p.content.trim()}`
+    const lic = p.license ? ` (${p.license})` : ''
+    return `[${i + 1}] ${cite}${lic}${p.url ? `\n${p.url}` : ''}\n${p.content.trim()}`
   })
   return blocks.join('\n\n---\n\n')
+}
+
+/** Human-readable, de-duplicated source citations to surface in the result UI. */
+export interface AssessmentSource {
+  name: string
+  url: string | null
+  license: string | null
+}
+
+export function extractSources(passages: RetrievedPassage[]): AssessmentSource[] {
+  const seen = new Map<string, AssessmentSource>()
+  for (const p of passages) {
+    const name = (p.sourceName || p.title || '').trim()
+    if (!name) continue
+    const key = name.toLowerCase()
+    if (!seen.has(key)) {
+      seen.set(key, { name, url: p.url, license: p.license })
+    }
+  }
+  return Array.from(seen.values()).slice(0, 6)
 }

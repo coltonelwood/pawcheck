@@ -6,10 +6,12 @@
 import type { KnowledgeSourceConnector } from '../types'
 import { europePmcConnector } from './europepmc'
 import { plosConnector } from './plos'
+import { curatedConnector } from './curated'
 
 const CONNECTORS: Record<string, KnowledgeSourceConnector> = {
   [europePmcConnector.key]: europePmcConnector,
   [plosConnector.key]: plosConnector,
+  [curatedConnector.key]: curatedConnector,
 }
 
 export function getConnector(key: string): KnowledgeSourceConnector | null {

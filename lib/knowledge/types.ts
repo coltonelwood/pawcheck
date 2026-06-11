@@ -14,6 +14,12 @@ export interface SourceDocument {
   publishedAt?: string
   /** Cleaned text to embed (abstract or full text). */
   content: string
+  /** Species the document pertains to, e.g. ['dog','cat']. */
+  species?: string[]
+  /** Topic tags, e.g. ['toxin','chocolate','emergency']. */
+  topicTags?: string[]
+  /** Optional true source name for citation (e.g. 'FDA'); overrides connector name. */
+  sourceName?: string
 }
 
 /** A source connector: knows how to discover documents from one open source. */
@@ -36,4 +42,7 @@ export interface RetrievedPassage {
   authors: string[] | null
   publishedAt: string | null
   license: string | null
+  sourceName: string | null
+  species: string[] | null
+  topicTags: string[] | null
 }

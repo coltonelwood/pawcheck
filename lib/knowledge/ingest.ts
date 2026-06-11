@@ -72,6 +72,9 @@ export async function crawlAllSources(opts: { perSource?: number } = {}): Promis
             authors: doc.authors ?? null,
             license: doc.license ?? null,
             published_at: doc.publishedAt ?? null,
+            species: doc.species ?? null,
+            topic_tags: doc.topicTags ?? null,
+            source_name: doc.sourceName ?? null,
             content: doc.content,
             content_hash: hash,
             status: 'discovered',
@@ -118,7 +121,7 @@ export async function processPendingDocuments(opts: { maxDocs?: number } = {}): 
   const out: ProcessResult = { documentsProcessed: 0, chunksEmbedded: 0, errors: 0 }
 
   if (!isEmbeddingConfigured()) {
-    throw new Error('VOYAGE_API_KEY is not configured — cannot embed')
+    throw new Error('Embedding API key (PINECONE_API_KEY) is not configured — cannot embed')
   }
 
   // Preflight: verify the embedding API works before touching any documents.

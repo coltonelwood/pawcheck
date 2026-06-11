@@ -1,0 +1,813 @@
+[
+  {
+    "external_id": "toxin-chocolate-dogs",
+    "title": "Chocolate toxicity in dogs",
+    "content": "Chocolate is one of the most common food poisonings in dogs. It contains theobromine and caffeine, two stimulant compounds called methylxanthines that dogs metabolize much more slowly than people do. Because of this slow breakdown, these chemicals build up and overstimulate the heart and nervous system. The danger depends on the type and amount of chocolate eaten and the size of the dog. Baking chocolate, cocoa powder, and dark chocolate are far more concentrated and dangerous than milk chocolate, while white chocolate contains very little theobromine. A small amount of milk chocolate may upset a large dog's stomach, but the same weight of baking chocolate could be life-threatening. Cats can also be poisoned but rarely eat enough because they do not taste sweetness. Early signs usually appear within 6 to 12 hours and include vomiting, diarrhea, restlessness, excessive thirst, and panting. As toxicity worsens, dogs may show a racing or irregular heartbeat, high blood pressure, muscle tremors, agitation, elevated body temperature, and in severe cases seizures or collapse. The high fat and sugar content can also trigger pancreatitis a day or two later. Chocolate poisoning should be treated as an emergency. If your dog has eaten chocolate, contact your veterinarian or an animal poison control service immediately, and try to have the wrapper or product information available so they can estimate the dose. Do not wait for symptoms to appear, because treatment is far more effective when started early. Do not try to make your dog vomit at home unless a veterinary professional tells you to, since this is not always safe. At the clinic, treatment is supportive and may involve decontamination, intravenous fluids, heart monitoring, and medications to control tremors or heart rhythm; discuss exact treatment and dosing with your veterinarian. Most dogs recover well when treated promptly. To prevent poisoning, store all chocolate, cocoa, and chocolate-containing baked goods well out of reach, and be especially careful around holidays when candy and desserts are common in the home.",
+    "source_name": "FDA Center for Veterinary Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.fda.gov/animal-veterinary/resources-you/animal-health-literacy",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "toxin",
+      "chocolate",
+      "food",
+      "emergency",
+      "gastrointestinal",
+      "cardiac"
+    ]
+  },
+  {
+    "external_id": "toxin-grapes-raisins-dogs",
+    "title": "Grape and raisin toxicity in dogs",
+    "content": "Grapes, raisins, currants, and sultanas can cause sudden kidney failure in dogs, and even small amounts may be dangerous. This includes fresh grapes, dried forms in baked goods such as raisin bread or oatmeal cookies, and grape juice or trail mix. The exact toxic compound has been linked to a substance found in grapes, but sensitivity varies widely between individual dogs. Some dogs eat grapes with no apparent effect, while others develop severe kidney injury after only a few. Because there is no reliable safe amount, any grape or raisin ingestion in a dog should be taken seriously. Cats are far less likely to eat them, but the same caution applies. Early signs often begin within 6 to 24 hours and include vomiting, which is frequently the first symptom, followed by diarrhea, loss of appetite, lethargy, and abdominal tenderness. As the kidneys become affected over the next day or two, dogs may drink and urinate more, then produce little or no urine as the kidneys shut down, which is a grave sign. Treat any grape or raisin ingestion as an emergency. Contact your veterinarian or an animal poison control service right away, ideally within a few hours, because early decontamination and treatment give the best chance of protecting the kidneys. Do not attempt home remedies or induce vomiting without professional guidance. At the clinic, care typically focuses on decontamination if the ingestion was recent, followed by several days of intravenous fluid therapy to support the kidneys, along with blood tests to monitor kidney values; discuss exact treatment and dosing with your veterinarian. Dogs treated early often recover, but those who develop established kidney failure have a much poorer outlook. Prevent exposure by keeping grapes, raisins, and foods containing them out of reach, and remind family members and guests, especially children, not to share these snacks with pets.",
+    "source_name": "FDA Center for Veterinary Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.fda.gov/animal-veterinary/resources-you/animal-health-literacy",
+    "species": [
+      "dog"
+    ],
+    "topic_tags": [
+      "toxin",
+      "grapes",
+      "raisins",
+      "food",
+      "kidney",
+      "emergency"
+    ]
+  },
+  {
+    "external_id": "toxin-xylitol-dogs",
+    "title": "Xylitol poisoning in dogs",
+    "content": "Xylitol is a sugar substitute found in many sugar-free products, and it is highly toxic to dogs even in small amounts. It appears in sugar-free gum, breath mints, candy, baked goods, some peanut butters, toothpaste, mouthwash, chewable vitamins, and certain medications. Always check ingredient labels, because xylitol may also be listed as birch sugar. In people, xylitol does not strongly affect blood sugar, but in dogs it triggers a rapid and powerful release of insulin. This causes blood sugar to drop dangerously low, sometimes within 10 to 30 minutes, though some products release it more slowly. Higher doses can also cause liver damage that may appear over the following one to three days. Cats appear to be less affected, but xylitol should still be kept away from all pets. Signs of low blood sugar include weakness, stumbling, lethargy, vomiting, tremors, and in severe cases seizures or collapse. Signs of liver injury, such as worsening weakness, yellowing of the gums or eyes, and bleeding, can develop later even after blood sugar has stabilized. Xylitol poisoning is an emergency. If your dog may have eaten anything containing xylitol, contact your veterinarian or an animal poison control service immediately, and bring the packaging so the amount can be estimated. Do not wait for symptoms, because rapid treatment greatly improves the outcome. Do not give food or try to raise blood sugar at home without professional direction, and do not induce vomiting unless instructed. At the clinic, treatment commonly involves checking and supporting blood sugar, intravenous fluids, and monitoring liver values with bloodwork over several days; discuss exact treatment and dosing with your veterinarian. Dogs treated early for low blood sugar usually do well, while those with significant liver damage face a more guarded outlook. Prevent poisoning by storing sugar-free products securely, keeping purses and bags off the floor, and choosing pet-safe peanut butter for treats and medication.",
+    "source_name": "FDA Center for Veterinary Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.fda.gov/animal-veterinary/resources-you/animal-health-literacy",
+    "species": [
+      "dog"
+    ],
+    "topic_tags": [
+      "toxin",
+      "xylitol",
+      "food",
+      "hypoglycemia",
+      "liver",
+      "emergency"
+    ]
+  },
+  {
+    "external_id": "toxin-onion-garlic-dogs-cats",
+    "title": "Onion and garlic toxicity in dogs and cats",
+    "content": "Onions, garlic, leeks, chives, and shallots all belong to the Allium plant family and can damage the red blood cells of both dogs and cats. This applies to raw, cooked, powdered, and dehydrated forms, so seasoned foods, soups, baby food, broths, and garlic or onion powder can all be sources. Powdered and concentrated forms are especially potent because a small volume contains a large amount. Cats are more sensitive than dogs, but both species are at risk, and certain dog breeds of Japanese origin, such as Akitas and Shiba Inus, may be even more susceptible. The compounds in these plants cause oxidative damage to red blood cells, leading to a type of anemia in which the cells break apart or are removed from circulation. Toxicity can occur after a single large meal or from repeated smaller exposures over several days. Signs often develop gradually over one to several days and include weakness, lethargy, pale gums, rapid breathing, an elevated heart rate, reduced appetite, and sometimes vomiting or diarrhea. Affected pets may have reddish or brown-tinted urine as damaged blood cells are cleared. Because the anemia can worsen over days, do not assume a pet is fine just because it seems normal right after eating. Contact your veterinarian or an animal poison control service if your pet has eaten onion, garlic, or related foods, especially a large or concentrated amount, and treat significant ingestions as urgent. Bring information about what and how much was eaten. At the clinic, care may include decontamination if the ingestion was recent, blood tests to check for anemia over several days, and supportive care that can range up to blood transfusion in severe cases; discuss exact treatment and dosing with your veterinarian. To prevent poisoning, avoid feeding table scraps and human leftovers, keep these foods and seasoning powders out of reach, and never use garlic supplements on pets unless your veterinarian specifically recommends them.",
+    "source_name": "FDA Center for Veterinary Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.fda.gov/animal-veterinary/resources-you/animal-health-literacy",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "toxin",
+      "onion",
+      "garlic",
+      "food",
+      "anemia",
+      "blood"
+    ]
+  },
+  {
+    "external_id": "toxin-macadamia-nuts-dogs",
+    "title": "Macadamia nut toxicity in dogs",
+    "content": "Macadamia nuts can make dogs ill even in fairly small amounts, and they are a common holiday and baking ingredient found in cookies, trail mixes, and candies. The exact reason macadamia nuts affect dogs is not fully understood, but the effect is well documented and specific to dogs; cats are not typically reported to be affected. Signs usually appear within about 12 hours of eating the nuts. The most characteristic problem is weakness or an inability to use the back legs, so an affected dog may appear wobbly, drag the hind end, or be unable to stand normally. Other common signs include vomiting, tremors, an elevated body temperature, depression or lethargy, and stiffness or pain when moving. The combination of hind-limb weakness and tremors can be alarming, but the good news is that most dogs recover fully within 24 to 48 hours with supportive care. Be aware that many macadamia-containing foods also contain chocolate, raisins, or large amounts of fat, which can add additional and sometimes more serious dangers, including pancreatitis. If your dog has eaten macadamia nuts, contact your veterinarian or an animal poison control service for advice, especially if a large amount was eaten or if the dog is showing tremors, severe weakness, or signs of having eaten chocolate or raisins at the same time. Do not induce vomiting at home without professional guidance. At the clinic, treatment is usually supportive and may include decontamination if recent, fluids, temperature control, rest, and medication to keep the dog comfortable; discuss exact treatment and dosing with your veterinarian. Monitor your dog at home as directed and report any worsening, such as collapse, severe tremors, or signs of abdominal pain. To prevent problems, keep macadamia nuts and foods containing them out of reach and avoid sharing baked goods with your dog.",
+    "source_name": "FDA Center for Veterinary Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.fda.gov/animal-veterinary/resources-you/animal-health-literacy",
+    "species": [
+      "dog"
+    ],
+    "topic_tags": [
+      "toxin",
+      "macadamia",
+      "nuts",
+      "food",
+      "weakness",
+      "tremors"
+    ]
+  },
+  {
+    "external_id": "toxin-alcohol-dogs-cats",
+    "title": "Alcohol toxicity in dogs and cats",
+    "content": "Alcohol is dangerous to dogs and cats, who are far smaller and far more sensitive to it than people. Poisoning can come from obvious sources such as beer, wine, and liquor, but also from less obvious ones including unbaked yeast bread dough, rum-soaked desserts, some mouthwashes, perfumes, and certain cleaning products. Both drinking alcohol (ethanol) and other related alcohols can be absorbed not only when swallowed but in some cases through the skin. Because pets are small, even a modest amount can cause significant intoxication. Alcohol is absorbed quickly and affects the brain and nervous system, and at higher doses it can dangerously slow breathing, drop body temperature, and lower blood sugar. Signs can appear within 30 to 60 minutes and include stumbling, disorientation, drooling, vomiting, lethargy, and a strong odor of alcohol. As toxicity worsens, pets may develop slow or labored breathing, a slow heart rate, low body temperature, tremors, collapse, coma, and in severe cases life-threatening depression of breathing and circulation. Cats may be especially affected because of their small size. Alcohol poisoning is an emergency. If your pet has consumed any alcohol or unbaked dough, contact your veterinarian or an animal poison control service immediately and describe what and how much was ingested. Do not try to induce vomiting at home, because a disoriented or sedated animal can inhale vomit into the lungs. Keep the pet warm and calm while you seek help. At the clinic, treatment is supportive and may include fluids, warming, blood sugar support, and close monitoring of breathing and heart function until the alcohol clears; discuss exact treatment and dosing with your veterinarian. Most pets recover with prompt care, but severe cases can be fatal. Prevent poisoning by never offering alcoholic drinks to pets, cleaning up spills promptly, keeping rising dough out of reach, and storing alcohol-containing household products securely.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK548165/",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "toxin",
+      "alcohol",
+      "ethanol",
+      "neurologic",
+      "emergency"
+    ]
+  },
+  {
+    "external_id": "toxin-caffeine-dogs-cats",
+    "title": "Caffeine toxicity in dogs and cats",
+    "content": "Caffeine is a stimulant that is much more dangerous to dogs and cats than to people, and household sources are common. These include coffee, coffee grounds and beans, tea and tea bags, energy drinks, soda, certain weight-loss or energy supplements, and some medications. Used coffee grounds and tea bags in the trash are a frequent source for curious dogs. Caffeine belongs to the same family of compounds as the theobromine in chocolate, and it acts as a powerful stimulant of the heart and nervous system. Because pets are smaller and process it slowly, even modest amounts can cause significant signs, and concentrated sources such as supplement pills or energy products are especially hazardous. Signs usually begin within 30 minutes to a couple of hours and include restlessness, hyperactivity, panting, vomiting, and increased thirst and urination. As toxicity progresses, pets may show a racing or irregular heartbeat, high blood pressure, muscle tremors, agitation, elevated body temperature, and in severe cases seizures or collapse. Cats are also susceptible and may show similar agitation and heart effects. Caffeine poisoning should be treated as an emergency, particularly if a concentrated source was eaten. Contact your veterinarian or an animal poison control service right away and describe the source and estimated amount. Do not attempt to treat tremors or a racing heart at home, and do not induce vomiting without professional guidance. At the clinic, care is supportive and may include decontamination if recent, fluids, heart and blood pressure monitoring, and medications to control tremors or heart rhythm; discuss exact treatment and dosing with your veterinarian. Most pets recover with timely treatment. Prevent exposure by keeping coffee, tea, energy drinks, and caffeine pills out of reach, securing the trash so used grounds and bags cannot be raided, and never giving pets human stimulant products.",
+    "source_name": "FDA Center for Veterinary Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.fda.gov/animal-veterinary/resources-you/animal-health-literacy",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "toxin",
+      "caffeine",
+      "food",
+      "cardiac",
+      "neurologic",
+      "emergency"
+    ]
+  },
+  {
+    "external_id": "toxin-salt-playdough-dogs-cats",
+    "title": "Salt and homemade play dough toxicity in pets",
+    "content": "Eating too much salt can poison dogs and cats, and one of the most common hidden sources is homemade salt-dough ornaments and play dough, which contain very high amounts of salt. Other sources include rock salt and ice melt, table salt, heavily salted foods, seawater, and some homemade bait products. Salt poisoning, also called hypernatremia, happens when blood sodium rises too high, which pulls water out of the body's cells, including brain cells. This is what makes high salt intake dangerous to the nervous system. Pets are at greatest risk when they eat a concentrated salty product and cannot drink enough water, or when too much salt is given as a misguided home remedy to induce vomiting, which should never be done. Early signs include vomiting, diarrhea, excessive thirst, and frequent urination. As sodium rises, pets may become wobbly, weak, and disoriented, and can develop tremors, seizures, swelling, and in severe cases coma. The brain effects can be serious and require careful, gradual treatment. If your pet has eaten salt dough, a large amount of salty food, ice melt, or seawater, contact your veterinarian or an animal poison control service promptly, especially if any nervous-system signs appear. Importantly, do not suddenly give large amounts of water to an affected pet, because correcting high sodium too quickly can be harmful; let a veterinary professional guide rehydration. Do not induce vomiting at home. At the clinic, treatment focuses on carefully and slowly restoring normal sodium and water balance with monitored fluid therapy and bloodwork, along with supportive care for any seizures; discuss exact treatment and dosing with your veterinarian. To prevent poisoning, store salt-dough crafts and ornaments out of reach, keep ice melt products secured, avoid feeding salty snacks, and rinse paws after winter walks.",
+    "source_name": "FDA Center for Veterinary Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.fda.gov/animal-veterinary/resources-you/animal-health-literacy",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "toxin",
+      "salt",
+      "playdough",
+      "sodium",
+      "neurologic",
+      "emergency"
+    ]
+  },
+  {
+    "external_id": "toxin-bread-dough-dogs-cats",
+    "title": "Raw bread dough toxicity in dogs and cats",
+    "content": "Raw, unbaked bread dough that contains yeast is a surprising but serious hazard for dogs and cats, and it poses two separate dangers at once. The warm, moist environment of the stomach is ideal for yeast, so swallowed dough continues to rise inside the animal. This causes the first problem, which is mechanical: the expanding mass can stretch and distend the stomach, causing pain, bloating, and in severe cases interfering with blood flow and breathing. The second problem is chemical: as the yeast ferments, it produces alcohol, which is absorbed into the bloodstream and causes alcohol poisoning. So a pet that eats rising dough can suffer both a swollen, painful stomach and intoxication. Signs may include a visibly distended or bloated abdomen, unproductive retching or vomiting attempts, restlessness, and abdominal discomfort, along with signs of alcohol toxicity such as stumbling, disorientation, drooling, weakness, slow breathing, low body temperature, and collapse. Both the bloating and the alcohol effects can become life-threatening. Treat dough ingestion as an emergency, especially in smaller pets that can eat a large amount relative to their size. Contact your veterinarian or an animal poison control service immediately and describe how much dough was eaten and when. Do not try to make your pet vomit at home, because the sticky dough mass can be difficult to bring up and a sedated or disoriented animal may inhale it. At the clinic, treatment may include measures to slow yeast activity, fluids, warming, blood sugar support, and management of the stomach distension and alcohol effects, with monitoring of breathing and heart function; discuss exact treatment and dosing with your veterinarian. To prevent this, keep rising dough well out of reach, do not leave dough to proof where pets can access it, and clean up dropped pieces of raw dough promptly.",
+    "source_name": "FDA Center for Veterinary Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.fda.gov/animal-veterinary/resources-you/animal-health-literacy",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "toxin",
+      "bread-dough",
+      "yeast",
+      "alcohol",
+      "bloat",
+      "emergency"
+    ]
+  },
+  {
+    "external_id": "toxin-lilies-cats",
+    "title": "Lily poisoning in cats",
+    "content": "True lilies are among the most dangerous plants for cats and are a genuine emergency, because they can cause sudden, severe kidney failure. The most hazardous types are true lilies and daylilies, which include Easter lilies, tiger lilies, Asiatic and Oriental lilies, stargazer lilies, and daylilies often found in bouquets and gardens. Every part of these plants is toxic to cats, including the petals, leaves, stems, pollen, and even the water in the vase. A cat can be poisoned simply by brushing against the flowers and then grooming pollen off its fur, or by nibbling a single leaf. This extreme toxicity is specific to cats; dogs may get an upset stomach but do not develop the same kidney failure. Because the danger is so high and the safe dose is essentially zero, any exposure in a cat must be treated urgently. Early signs appear within a few hours and include drooling, vomiting, loss of appetite, and lethargy. These may seem to improve, but the kidneys are being injured, and over the next one to three days the cat can develop increased or decreased urination, worsening lethargy, dehydration, and ultimately kidney failure that is often fatal without rapid treatment. If your cat has had any contact with a lily, contact your veterinarian or an animal poison control service immediately, ideally within hours, because early treatment is critical and dramatically improves survival. Do not wait to see if the cat seems sick. At the clinic, treatment typically includes decontamination if the exposure was very recent, followed by aggressive intravenous fluid therapy and monitoring of kidney values, usually over several days; discuss exact treatment and dosing with your veterinarian. Cats treated within the first several hours have a much better outcome than those treated after kidney failure sets in. The safest prevention is to keep all true lilies and daylilies out of any home with cats, and to check that bouquets and gardens do not contain them.",
+    "source_name": "FDA Center for Veterinary Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.fda.gov/animal-veterinary/animal-health-literacy/lovely-lilies-and-curious-cats-dangerous-combination",
+    "species": [
+      "cat"
+    ],
+    "topic_tags": [
+      "toxin",
+      "plant",
+      "lily",
+      "kidney",
+      "emergency"
+    ]
+  },
+  {
+    "external_id": "toxin-sago-palm-dogs-cats",
+    "title": "Sago palm toxicity in dogs and cats",
+    "content": "Sago palms and related cycad plants are extremely toxic to dogs and cats and can cause life-threatening liver failure. These ornamental plants are popular in warm climates and as houseplants and bonsai, and every part of the plant is poisonous. The seeds, sometimes called nuts, are the most toxic part and are particularly attractive to dogs. Because the seeds are appealing and the toxin is potent, even chewing or swallowing one or two seeds can be enough to cause serious harm. The plant contains a toxin that damages the liver and can also affect the digestive tract and nervous system. Signs often begin within 15 minutes to several hours and include vomiting, drooling, diarrhea that may be bloody, and loss of appetite. Over the next day or so, signs of liver injury can develop, such as worsening lethargy, weakness, yellowing of the gums and eyes, bruising or bleeding, increased thirst, and in severe cases neurological signs including disorientation, tremors, or seizures. Liver failure can be fatal even with treatment, so speed matters. Sago palm ingestion is an emergency. If your pet has chewed or eaten any part of a sago palm or cycad, contact your veterinarian or an animal poison control service immediately, and bring a photo or sample of the plant if possible. Do not wait for symptoms and do not induce vomiting at home without professional direction. At the clinic, treatment may include early decontamination, intravenous fluids, medications to protect the stomach and support the liver, control of bleeding, and repeated blood tests to monitor liver function over several days; discuss exact treatment and dosing with your veterinarian. Early and aggressive care improves the chances of survival, but the prognosis is guarded once liver failure develops. Prevent poisoning by keeping sago palms out of homes and yards with pets, or removing them entirely, and never leaving the seeds where a pet could reach them.",
+    "source_name": "FDA Center for Veterinary Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.fda.gov/animal-veterinary/resources-you/animal-health-literacy",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "toxin",
+      "plant",
+      "sago-palm",
+      "liver",
+      "emergency"
+    ]
+  },
+  {
+    "external_id": "toxin-azalea-rhododendron-dogs-cats",
+    "title": "Azalea and rhododendron toxicity in dogs and cats",
+    "content": "Azaleas and rhododendrons are common landscaping and ornamental shrubs that are toxic to both dogs and cats. They contain natural compounds called grayanotoxins, which interfere with normal nerve, muscle, and heart function. All parts of the plant are toxic, including the leaves and flowers, and even eating a few leaves can cause illness in a smaller pet. Honey made from these plants can also be toxic, though that is an uncommon exposure for pets. Because these shrubs are so widely planted in yards and gardens, curious pets may chew on them out of boredom or while exploring. Signs usually begin within a few hours of eating the plant and commonly start with drooling, vomiting, and diarrhea. As the toxin affects the heart and nervous system, pets may become weak and wobbly, develop a slow or abnormal heart rate, low blood pressure, tremors, and in severe cases collapse, seizures, coma, or dangerous heart rhythm problems. The combination of digestive upset and cardiovascular effects can become serious, so significant ingestions should be treated urgently. If your pet has eaten any part of an azalea or rhododendron, contact your veterinarian or an animal poison control service promptly and describe how much was eaten, bringing a photo or sample of the plant if you can. Do not induce vomiting at home unless a veterinary professional advises it. At the clinic, treatment is supportive and may include decontamination if recent, intravenous fluids, monitoring of the heart rate and blood pressure, and medications to stabilize the heart and control other signs; discuss exact treatment and dosing with your veterinarian. Many pets recover with prompt supportive care, but severe poisonings can be life-threatening. To prevent exposure, supervise pets around landscaping, consider removing these shrubs from areas pets can access, and clear away pruned branches and fallen leaves so pets do not chew on them.",
+    "source_name": "FDA Center for Veterinary Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.fda.gov/animal-veterinary/resources-you/animal-health-literacy",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "toxin",
+      "plant",
+      "azalea",
+      "rhododendron",
+      "cardiac",
+      "neurologic"
+    ]
+  },
+  {
+    "external_id": "toxin-tulip-daffodil-bulbs-dogs-cats",
+    "title": "Tulip and daffodil bulb toxicity in dogs and cats",
+    "content": "Tulips and daffodils are popular spring flowers, but they are toxic to dogs and cats, and the bulb is the most dangerous part. The toxins are concentrated in the bulbs, so pets that dig in the garden or get into a bag of stored bulbs are at greatest risk, though eating the leaves or flowers can also cause illness. Tulips contain irritant compounds, and daffodils contain a toxin called lycorine along with other irritating substances. Dogs are the most common victims because they may dig up and chew bulbs, but cats can also be affected. Because the bulbs are the most concentrated source, a pet that eats one or more bulbs can become more seriously ill than one that nibbles a leaf. Signs usually appear within a few hours and commonly include drooling, mouth and throat irritation, vomiting, and diarrhea. With larger ingestions, especially of daffodil bulbs, pets may show more pronounced vomiting, abdominal pain, lethargy, an abnormal heart rate, tremors, and in severe cases low blood pressure or breathing difficulty. The intense stomach upset can also lead to dehydration. If your pet has eaten any part of a tulip or daffodil, and especially if it has eaten a bulb, contact your veterinarian or an animal poison control service for guidance and describe what and how much was eaten. Treat large bulb ingestions as urgent. Do not induce vomiting at home without professional advice. At the clinic, treatment is generally supportive and may include decontamination if recent, fluids to manage dehydration, anti-nausea support, and monitoring of the heart and overall condition for more severe cases; discuss exact treatment and dosing with your veterinarian. Most pets recover with timely supportive care. To prevent poisoning, store flower bulbs securely out of reach, supervise pets in gardens during planting season, and consider fencing off flower beds where these plants grow.",
+    "source_name": "FDA Center for Veterinary Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.fda.gov/animal-veterinary/resources-you/animal-health-literacy",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "toxin",
+      "plant",
+      "tulip",
+      "daffodil",
+      "bulb",
+      "gastrointestinal"
+    ]
+  },
+  {
+    "external_id": "toxin-antifreeze-ethylene-glycol-dogs-cats",
+    "title": "Antifreeze (ethylene glycol) poisoning in dogs and cats",
+    "content": "Antifreeze poisoning from ethylene glycol is one of the most dangerous and time-sensitive emergencies in dogs and cats. Ethylene glycol is found in many automotive antifreeze and coolant products, some brake fluids, and certain de-icers, and it has a sweet taste that can attract pets. Even a very small amount is deadly, and cats are exquisitely sensitive, with a tiny volume capable of causing fatal kidney failure. Common exposures include leaks and spills in driveways and garages and pets licking contaminated surfaces or drinking from puddles. The poison is absorbed quickly and is broken down in the body into toxic substances that severely damage the kidneys. The illness classically moves through phases. In the first hours, pets may appear drunk, wobbly, and disoriented, with vomiting, excessive thirst, and increased urination. They may then seem to improve, which is dangerously misleading, before kidney failure sets in over the following one to three days, causing severe lethargy, vomiting, dehydration, and little or no urine production. Because treatment must begin before the kidneys are damaged, every hour counts. This is a true emergency. If you suspect any antifreeze exposure, contact your veterinarian or an animal poison control service immediately, even if your pet seems normal, because the antidote works best when given very early, within hours of ingestion. Do not wait for symptoms. If you find a coolant spill where pets roam, treat any contact as potential poisoning. At the clinic, treatment may include rapid testing, an antidote that blocks the breakdown of the toxin, aggressive intravenous fluids, and intensive monitoring of kidney values; discuss exact treatment and dosing with your veterinarian. Survival depends heavily on how quickly treatment starts, and pets treated after kidney failure has developed have a very poor outlook. Prevent poisoning by cleaning up coolant spills immediately, storing antifreeze in sealed containers out of reach, fixing leaks promptly, and considering products labeled as less toxic to animals.",
+    "source_name": "FDA Center for Veterinary Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.fda.gov/animal-veterinary/resources-you/animal-health-literacy",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "toxin",
+      "antifreeze",
+      "ethylene-glycol",
+      "kidney",
+      "household",
+      "emergency"
+    ]
+  },
+  {
+    "external_id": "toxin-rodenticide-anticoagulant-dogs-cats",
+    "title": "Anticoagulant rodenticide poisoning in dogs and cats",
+    "content": "Anticoagulant rat and mouse poisons are a frequent cause of pet poisoning because the baits are designed to be appealing and are often placed on floors and in low spaces where pets can reach them. These products work by blocking the body's ability to recycle vitamin K, which is needed to make blood-clotting factors. Without active clotting factors, the animal slowly loses the ability to form clots and can bleed internally. Pets can be poisoned by eating the bait directly, and in some cases by eating a poisoned rodent. Both dogs and cats are at risk, though dogs more commonly eat the bait. A key danger is that signs are often delayed by several days, because the body must use up its existing clotting factors before bleeding begins. By the time symptoms appear, the pet may already be seriously affected. Signs of internal bleeding can include weakness, pale gums, lethargy, difficulty breathing if blood collects in the chest, a swollen or painful abdomen, coughing, bruising, bleeding from the gums or nose, blood in the urine or stool, and collapse. Because of the delay, early action after a known exposure is far better than waiting for signs. If your pet may have eaten rodent bait, contact your veterinarian or an animal poison control service immediately, even if the pet seems fine, and bring the product packaging because not all rodenticides work the same way. Early treatment can prevent bleeding entirely. At the clinic, management may include decontamination if recent, blood tests to assess clotting, vitamin K therapy given over a period of weeks, and, in animals that are already bleeding, transfusions and intensive supportive care; discuss exact treatment and dosing with your veterinarian. Pets treated before bleeding starts generally do very well. Prevent poisoning by avoiding the use of these baits where pets live, placing any rodent control in tamper-resistant stations out of reach, and keeping pets away from areas where neighbors may use baits.",
+    "source_name": "EPA",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.epa.gov/rodenticides/restrictions-rodenticide-products",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "toxin",
+      "rodenticide",
+      "anticoagulant",
+      "bleeding",
+      "household",
+      "emergency"
+    ]
+  },
+  {
+    "external_id": "toxin-ibuprofen-nsaids-dogs-cats",
+    "title": "Ibuprofen and human NSAID toxicity in dogs and cats",
+    "content": "Human anti-inflammatory pain relievers, a group known as NSAIDs that includes ibuprofen and naproxen, are a common and serious cause of poisoning in dogs and cats. These medications are not safe to give to pets, because the dose that helps a person can be toxic to an animal, and pets are far more sensitive to their effects. Poisoning often happens when an owner gives a human pain pill hoping to help a sore or limping pet, or when a pet finds and chews a bottle or a dropped tablet. Cats are especially sensitive and can be harmed by even very small amounts. NSAIDs can damage the stomach and intestines, causing ulcers, and can injure the kidneys; at higher doses they can also affect the nervous system. Signs may include vomiting, sometimes with blood, diarrhea or dark tarry stools, loss of appetite, lethargy, abdominal pain, increased or decreased thirst and urination as the kidneys are affected, weakness, and in severe cases stumbling, tremors, or seizures. Black, tarry stool or vomiting blood signals serious stomach bleeding and needs urgent care. Never give your pet ibuprofen, naproxen, or other human pain relievers. If your pet has eaten any of these medications or you have given them, contact your veterinarian or an animal poison control service immediately, and bring the packaging so the amount can be estimated. Do not wait for symptoms, because early treatment greatly reduces the risk of ulcers and kidney damage. At the clinic, treatment may include decontamination if recent, medications to protect and heal the stomach, intravenous fluids to support the kidneys, and blood tests to monitor kidney function over several days; discuss exact treatment and dosing with your veterinarian. To prevent poisoning, store all human medications securely, never share your medicine with pets, and ask your veterinarian about pet-specific pain relief whenever your animal seems sore.",
+    "source_name": "FDA Center for Veterinary Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.fda.gov/animal-veterinary/resources-you/animal-health-literacy",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "toxin",
+      "medication",
+      "ibuprofen",
+      "nsaid",
+      "kidney",
+      "gastrointestinal"
+    ]
+  },
+  {
+    "external_id": "toxin-acetaminophen-cats-dogs",
+    "title": "Acetaminophen toxicity in cats and dogs",
+    "content": "Acetaminophen, the active ingredient in many over-the-counter pain and fever medications, is highly dangerous to pets and can be rapidly fatal to cats. Cats lack much of the enzyme needed to process this drug safely, so even a single tablet can be deadly to a cat. Dogs can also be poisoned, especially by larger amounts, but cats are in a category of extreme sensitivity. Poisoning commonly occurs when a well-meaning owner gives a human medication to a sick pet, or when a pet swallows a dropped or chewed tablet, including combination cold and flu products. In cats, the toxin damages red blood cells so they can no longer carry oxygen, and it also injures the liver. In dogs, liver damage tends to predominate, though red-cell effects can occur at high doses. Signs in cats can appear within a few hours and include difficulty breathing, swelling of the face and paws, drooling, lethargy, weakness, vomiting, and a blue-gray or brown color to the gums as the blood loses its ability to carry oxygen. Dogs may show vomiting, lethargy, loss of appetite, abdominal pain, and yellowing of the gums or eyes from liver injury. This is a true emergency, particularly in cats. Never give acetaminophen to a cat under any circumstances, and never give it to a dog unless a veterinarian specifically directs it. If your pet has ingested acetaminophen, contact your veterinarian or an animal poison control service immediately and bring the packaging. Do not wait for symptoms, because there is an antidote that works best when given early. At the clinic, treatment may include decontamination if recent, an antidote to protect the liver and blood cells, oxygen support, fluids, and monitoring of liver values and red blood cells; discuss exact treatment and dosing with your veterinarian. Prompt treatment improves survival, but delays are often fatal in cats. Prevent poisoning by storing all medications securely and never medicating pets with human drugs.",
+    "source_name": "FDA Center for Veterinary Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.fda.gov/animal-veterinary/resources-you/animal-health-literacy",
+    "species": [
+      "cat",
+      "dog"
+    ],
+    "topic_tags": [
+      "toxin",
+      "medication",
+      "acetaminophen",
+      "liver",
+      "blood",
+      "emergency"
+    ]
+  },
+  {
+    "external_id": "toxin-adhd-antidepressant-meds-dogs-cats",
+    "title": "Human ADHD and antidepressant medication toxicity in pets",
+    "content": "Human psychiatric and attention medications are a common source of pet poisoning, because the pills are often kept on nightstands or in bags and may be dropped during daily use. Two important groups are stimulant ADHD medications and antidepressants. Stimulant ADHD drugs act like other stimulants on the heart and nervous system, and even a small dose meant for a person can dangerously overstimulate a dog or cat. Antidepressants, including the widely used class known as SSRIs and certain other types, affect brain chemistry and can cause an overstimulated state, sometimes called serotonin syndrome, when too much is absorbed. Both dogs and cats can be affected, and dogs are the more frequent victims simply because they tend to eat dropped pills. Signs from stimulant medications can include hyperactivity, restlessness, panting, a racing or irregular heartbeat, high blood pressure, elevated body temperature, tremors, and in severe cases seizures or collapse. Signs from antidepressants and related serotonin effects can include agitation or sedation, vomiting, drooling, dilated pupils, tremors, a high heart rate, high body temperature, disorientation, and seizures. Because these signs can escalate quickly, ingestion should be treated as an emergency. If your pet has swallowed any human psychiatric or ADHD medication, contact your veterinarian or an animal poison control service immediately, bring the bottle so the drug and amount can be identified, and do not attempt to treat agitation, tremors, or a racing heart at home. Do not induce vomiting unless a veterinary professional directs it, because a pet that becomes agitated or has a seizure can be harmed. At the clinic, treatment is supportive and may include decontamination if recent, calming and anti-tremor medications, temperature and heart monitoring, fluids, and management of any seizures; discuss exact treatment and dosing with your veterinarian. Most pets recover with prompt care. Prevent poisoning by storing all medications in closed cabinets, picking up dropped pills immediately, and keeping bags and purses out of reach.",
+    "source_name": "FDA Center for Veterinary Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.fda.gov/animal-veterinary/resources-you/animal-health-literacy",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "toxin",
+      "medication",
+      "adhd",
+      "antidepressant",
+      "neurologic",
+      "emergency"
+    ]
+  },
+  {
+    "external_id": "emergency-gdv-bloat-dogs",
+    "title": "Bloat and gastric dilatation-volvulus (GDV) in dogs",
+    "content": "Bloat, and its most dangerous form called gastric dilatation-volvulus or GDV, is a sudden, life-threatening emergency that affects dogs and requires immediate veterinary care. In GDV, the stomach fills with gas and then twists on itself, which traps the gas and cuts off the stomach's blood supply and the normal flow of blood back to the heart. This can send the dog into shock within a short time, and without rapid surgery the condition is often fatal. GDV is most common in large, deep-chested breeds such as Great Danes, German Shepherds, Standard Poodles, Weimaraners, and similar dogs, and the risk may rise with eating large meals quickly, exercising right after eating, and increasing age. The hallmark signs are a swollen or distended belly, especially behind the ribs, and repeated unproductive retching, where the dog tries to vomit but little or nothing comes up. Other signs include obvious restlessness and discomfort, pacing, drooling, a hunched posture, rapid shallow breathing, pale gums, weakness, and collapse. The dog often appears anxious and unable to get comfortable. Because GDV can kill within hours, any dog showing a bloated abdomen with unproductive retching should be taken to a veterinarian or emergency clinic immediately, day or night. Do not wait to see if it passes, and do not attempt home remedies; call the clinic on the way so they can prepare. At the hospital, treatment focuses on stabilizing shock with intravenous fluids, relieving the trapped gas to take pressure off the stomach and heart, and emergency surgery to untwist the stomach and check for damaged tissue; discuss exact treatment and dosing with your veterinarian. During surgery, the stomach is often tacked into place to help prevent twisting again. Early treatment greatly improves survival. For high-risk breeds, ask your veterinarian about preventive measures, which can include feeding smaller meals, avoiding heavy exercise around mealtimes, and a preventive stomach-tacking procedure.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7167319/",
+    "species": [
+      "dog"
+    ],
+    "topic_tags": [
+      "emergency",
+      "gdv",
+      "bloat",
+      "deep-chested",
+      "surgery",
+      "gastrointestinal"
+    ]
+  },
+  {
+    "external_id": "emergency-urinary-blockage-male-cats",
+    "title": "Urinary blockage in cats (especially male cats)",
+    "content": "A urinary blockage is a true, life-threatening emergency that most often affects male cats, because their urethra is narrow and easily obstructed. The blockage can be caused by crystals, mucus plugs, small stones, or inflammation that prevents the cat from passing urine. When a cat cannot urinate, toxins and potassium build up rapidly in the body, the bladder becomes painfully overfilled, and within a day or so the changes can stop the heart. This is why a blocked cat needs care within hours, not days. Owners often first notice the cat making frequent trips to the litter box and straining without producing urine, or producing only tiny drops, sometimes with blood. The cat may cry out in the box, lick at its rear end, hide, pace, or seem restless and uncomfortable. As the condition worsens, cats become lethargic, lose their appetite, may vomit, and can collapse. Straining in the litter box is sometimes mistaken for constipation, so any male cat that appears to be straining should be assumed to have a possible urinary blockage until a veterinarian says otherwise. If your cat is straining to urinate and producing little or nothing, especially a male cat, contact your veterinarian or an emergency clinic immediately. Do not wait overnight to see if it improves, and do not withhold help hoping it will pass. At the clinic, treatment typically involves stabilizing the cat, relieving the obstruction so urine can flow, often by placing a urinary catheter under sedation or anesthesia, intravenous fluids, and correcting dangerous changes in body chemistry such as high potassium; discuss exact treatment and dosing with your veterinarian. Many cats recover well when treated promptly, though blockages can recur, so follow-up care, diet changes, and monitoring are important. Reducing stress, encouraging water intake, keeping litter boxes clean, and following your veterinarian's dietary advice can lower the chance of future episodes.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6979512/",
+    "species": [
+      "cat"
+    ],
+    "topic_tags": [
+      "emergency",
+      "urinary",
+      "blockage",
+      "male-cat",
+      "urethra",
+      "life-threatening"
+    ]
+  },
+  {
+    "external_id": "emergency-dyspnea-difficulty-breathing-dogs-cats",
+    "title": "Difficulty breathing (dyspnea) in dogs and cats",
+    "content": "Difficulty breathing, known medically as dyspnea, is always an emergency in dogs and cats, because it can mean the body is not getting enough oxygen. Many serious conditions can cause it, including heart disease and fluid in or around the lungs, asthma in cats, pneumonia, an obstruction in the airway, chest trauma, allergic reactions, and severe pain or anemia. Regardless of the cause, a pet that is struggling to breathe needs help quickly. Signs to watch for include rapid or heavy breathing at rest, exaggerated effort with the chest and belly heaving, breathing with the mouth open or with the elbows held out from the body, stretching the head and neck forward, noisy or raspy breathing, restlessness or anxiety, an inability to lie down comfortably, and pale, blue, or gray gums. Cats in particular often hide breathing trouble until it is severe, so open-mouth breathing or panting in a cat is a serious warning sign. A pet that suddenly collapses, gasps, or has blue-tinged gums needs care without delay. If your pet is having trouble breathing, contact your veterinarian or an emergency clinic immediately and head there right away, calling ahead so they can prepare. Keep the pet as calm and cool as possible, minimize handling and stress, do not force it into a carrier roughly, and avoid pressing on the chest or neck. Do not attempt to give any medication on your own. At the clinic, the team will usually provide oxygen first to stabilize the pet, then work to find the cause with examination and tests such as imaging, and treat accordingly, which may involve removing fluid, supporting the heart, or opening the airways; discuss exact treatment and dosing with your veterinarian. Because breathing emergencies can deteriorate quickly, prompt professional care offers the best chance of recovery. If your pet has a known heart or airway condition, ask your veterinarian what early warning signs to watch for and when to seek emergency help.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7128611/",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "emergency",
+      "breathing",
+      "dyspnea",
+      "respiratory",
+      "oxygen",
+      "life-threatening"
+    ]
+  },
+  {
+    "external_id": "emergency-seizures-dogs-cats",
+    "title": "Seizures in dogs and cats",
+    "content": "A seizure is a sudden burst of abnormal electrical activity in the brain, and it can be frightening to witness. Seizures in dogs and cats have many causes, including epilepsy, low blood sugar, liver disease, poisoning, head injury, infections, and tumors. A seizure may involve collapse with stiffening and rhythmic paddling or jerking of the legs, loss of consciousness, drooling, chomping of the jaws, and sometimes loss of bladder or bowel control. Some seizures are subtle, such as staring, twitching of the face, or unusual repetitive behavior. Most single seizures last under two minutes, and the pet may be confused, restless, or wobbly for minutes to hours afterward. During a seizure, focus on safety. Do not put your hands near the mouth, because a seizing animal can bite without meaning to; pets cannot swallow their tongues. Gently move furniture or hazards away, cushion the head if you can do so safely, dim lights and reduce noise, and time the seizure if possible. Keep other pets away. Most brief, isolated seizures are not immediately life-threatening, but certain situations are true emergencies and require immediate veterinary care: a seizure lasting more than about five minutes, two or more seizures in a row without full recovery in between, or repeated seizures within a single day. A first-ever seizure, or any seizure in a pet that may have been exposed to a poison, also warrants prompt veterinary evaluation. If your pet is having a prolonged or repeated seizure, contact your veterinarian or an emergency clinic right away. After any seizure, keep the pet calm and quiet and contact your veterinarian to discuss next steps and whether testing is needed. At the clinic, the team will work to stop active seizures, look for an underlying cause with examination and tests, and discuss whether ongoing treatment is appropriate; discuss exact treatment and dosing with your veterinarian. Keeping a simple log of when seizures happen and how long they last is very helpful for your veterinarian.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5980284/",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "emergency",
+      "seizure",
+      "neurologic",
+      "epilepsy",
+      "first-aid"
+    ]
+  },
+  {
+    "external_id": "emergency-heatstroke-dogs-cats",
+    "title": "Heatstroke in dogs and cats",
+    "content": "Heatstroke is a life-threatening emergency that occurs when a pet's body temperature rises far above normal and the body can no longer cool itself. Dogs and cats cannot sweat the way people do; they rely mainly on panting to shed heat, which becomes ineffective in hot, humid conditions. Common causes include being left in a parked car, which can become deadly within minutes even on a mild day, exercise in hot weather, lack of shade and water, and being confined in a hot space. Flat-faced breeds such as Bulldogs and Pugs, overweight pets, older pets, very young animals, and those with heart or breathing conditions are at especially high risk. Early signs include heavy and frantic panting, bright red gums, drooling, restlessness, and a fast heart rate. As heatstroke worsens, pets may become weak and wobbly, vomit or have diarrhea that may contain blood, develop a glazed expression, collapse, have seizures, and lose consciousness. Internal damage to the organs and clotting system can occur and may be fatal even after the pet appears to cool down. If you suspect heatstroke, begin cooling immediately while arranging emergency veterinary care. Move the pet to shade or air conditioning, offer small amounts of cool water if the pet is alert enough to drink, and wet the body with cool, not ice-cold, water, focusing on the belly, armpits, and paws, with airflow from a fan. Do not use ice or ice-cold water, which can cause blood vessels to constrict and slow cooling, and do not cover the pet with a wet towel that traps heat. Stop active cooling once the pet is improving to avoid overcooling, and get to the veterinarian, because internal effects may not be visible. At the clinic, treatment includes controlled cooling, intravenous fluids, oxygen, and monitoring for organ and clotting complications; discuss exact treatment and dosing with your veterinarian. Prevent heatstroke by never leaving pets in vehicles, providing shade and water, avoiding exercise in heat, and being extra cautious with high-risk pets.",
+    "source_name": "FDA Center for Veterinary Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.fda.gov/animal-veterinary/resources-you/animal-health-literacy",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "emergency",
+      "heatstroke",
+      "hyperthermia",
+      "first-aid",
+      "life-threatening"
+    ]
+  },
+  {
+    "external_id": "emergency-collapse-dogs-cats",
+    "title": "Sudden collapse in dogs and cats",
+    "content": "Sudden collapse, when a pet suddenly loses strength and goes down or loses consciousness, is an emergency that should never be ignored. Collapse can have many causes, including heart problems and abnormal heart rhythms, internal bleeding, low blood sugar, severe anemia, breathing emergencies, heatstroke, poisoning, severe pain, and neurological problems. Some collapses are brief, with the pet recovering within seconds to minutes, which is sometimes called fainting, while others involve prolonged weakness or unconsciousness. Even a brief collapse that resolves on its own can signal a serious underlying problem and warrants veterinary evaluation. Signs around a collapse can include sudden weakness in the legs, stumbling, going down, an inability to rise, pale or blue-gray gums, rapid or labored breathing, a racing or very slow heartbeat, vomiting, and loss of bladder or bowel control. A collapse with a swollen belly may suggest internal bleeding or bloat, while collapse with breathing distress points toward a heart or lung problem; either way, prompt care is essential. If your pet collapses, contact your veterinarian or an emergency clinic immediately and head there right away. Keep the pet calm and still, minimize movement and stress, keep the airway clear, and if the pet is unconscious, note whether it is breathing and whether the gums are a healthy pink color so you can report this. Do not give food, water, or any medication to a collapsed or groggy pet, because it could choke. If a possible poison or heat exposure is involved, mention this when you call. At the clinic, the team will work to stabilize the pet and identify the cause through examination, bloodwork, heart evaluation, and imaging, then treat accordingly; discuss exact treatment and dosing with your veterinarian. Because the causes of collapse range from manageable to immediately life-threatening, fast professional assessment gives the best chance of a good outcome. Keep notes on what your pet was doing before the collapse and how long it lasted, which helps your veterinarian.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7166406/",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "emergency",
+      "collapse",
+      "cardiac",
+      "first-aid",
+      "life-threatening"
+    ]
+  },
+  {
+    "external_id": "emergency-uncontrolled-bleeding-dogs-cats",
+    "title": "Uncontrolled bleeding in dogs and cats",
+    "content": "Heavy or uncontrolled bleeding is an emergency in dogs and cats, because significant blood loss can quickly lead to shock and be life-threatening. Bleeding may be external, from a wound, torn nail, or cut, or internal, which is hidden and may follow trauma such as being hit by a car, or result from certain poisons or illnesses. External bleeding that is bright, steady, or spurting, or that soaks through bandaging quickly, needs urgent attention. Signs of dangerous blood loss include weakness, pale or white gums, rapid breathing, a fast and weak pulse, cold limbs, restlessness, and collapse. Signs that may suggest internal bleeding include a swollen or painful belly, pale gums, weakness, difficulty breathing, and bruising, sometimes without obvious outside injury. For external bleeding, your priority is to slow the blood loss while you get to help. Apply firm, direct pressure to the wound with a clean cloth, towel, or gauze, and hold it steadily rather than lifting to check, because repeatedly looking can disrupt forming clots. If blood soaks through, add more material on top instead of removing the first layer, and keep applying pressure. If a limb is bleeding heavily, you can also gently elevate it if no fracture is suspected. Avoid tourniquets unless a veterinary professional instructs you, since they can cause harm if used incorrectly. Keep the pet calm and warm, and transport it to a veterinarian or emergency clinic right away while maintaining pressure if possible. If you suspect internal bleeding or your pet shows signs of shock, go immediately and do not wait. At the clinic, treatment focuses on stopping the bleeding, treating shock with fluids, replacing lost blood if needed, and finding and addressing the underlying cause, which may involve imaging or surgery; discuss exact treatment and dosing with your veterinarian. Quick first aid combined with prompt professional care offers the best chance of recovery. If bleeding follows possible rodenticide exposure, mention this, as it changes treatment.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7169436/",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "emergency",
+      "bleeding",
+      "hemorrhage",
+      "first-aid",
+      "shock",
+      "life-threatening"
+    ]
+  },
+  {
+    "external_id": "triage-vomiting-dogs-cats",
+    "title": "Vomiting in dogs and cats",
+    "content": "Vomiting is one of the most common reasons pets are brought to the veterinarian, and it can range from a minor, self-limiting upset to a sign of serious illness. Vomiting is the forceful ejection of stomach contents, often preceded by drooling, lip licking, and abdominal heaving, and it should be distinguished from regurgitation, which is a passive bringing up of undigested food with little effort. Causes include dietary indiscretion such as eating garbage or rich foods, sudden diet changes, intestinal parasites, infections, swallowed foreign objects, organ disease such as kidney or liver problems, pancreatitis, and poisoning. A single vomit in an otherwise bright, playful pet that is eating, drinking, and acting normally is often not an emergency and can sometimes be monitored at home for a short time. However, certain features make vomiting urgent and warrant prompt veterinary care: repeated or persistent vomiting, blood in the vomit, which may look red or like coffee grounds, vomiting along with marked lethargy, a painful or bloated belly, an inability to keep down water, suspected ingestion of a toxin or foreign object, repeated unproductive retching, which can signal bloat in dogs, and vomiting in very young, very old, or already ill pets, which can become dehydrated quickly. If your pet is vomiting but otherwise well, you can offer a calm environment and contact your veterinarian for advice on whether to briefly rest the stomach and how to reintroduce food and water; follow their guidance rather than withholding water for long periods, especially in small pets. Do not give human anti-nausea or pain medications, as some are toxic to pets. If any warning signs are present or the vomiting continues, contact your veterinarian. At the clinic, the team will look for the cause through examination and tests, and treatment may include fluids for dehydration, anti-nausea support, and addressing the underlying problem; discuss exact treatment and dosing with your veterinarian. Keeping note of how often your pet vomits and what the vomit looks like helps your veterinarian.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7128610/",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "triage",
+      "vomiting",
+      "gastrointestinal",
+      "common-complaint"
+    ]
+  },
+  {
+    "external_id": "triage-diarrhea-dogs-cats",
+    "title": "Diarrhea in dogs and cats",
+    "content": "Diarrhea, meaning loose or watery stool, is a very common problem in dogs and cats and has many possible causes. These include dietary indiscretion such as eating garbage, table scraps, or a sudden new food, intestinal parasites, viral or bacterial infections, stress, food sensitivities, and more serious underlying illnesses affecting the intestines or other organs. Diarrhea can be short-lived and mild, or it can signal something requiring veterinary care. A single soft stool or a brief bout in a pet that is otherwise bright, active, eating, and drinking is often not an emergency and may be monitored at home for a short time. However, several features make diarrhea more concerning and warrant prompt veterinary attention: diarrhea that is frequent, watery, or persists beyond a day or two, significant amounts of blood, black tarry stool, accompanying vomiting, marked lethargy, a painful or bloated abdomen, signs of dehydration such as dry gums and reduced energy, and any diarrhea in puppies, kittens, senior pets, or animals with existing health problems, because they can dehydrate quickly. Diarrhea combined with repeated vomiting or collapse should be treated as urgent. For a mild case in an otherwise healthy adult pet, ensure access to fresh water to prevent dehydration and contact your veterinarian for advice, which may include a temporary bland diet; follow their specific recommendations. Do not give human anti-diarrhea or pain medications without veterinary direction, as some can be unsafe for pets, particularly cats. If warning signs are present or the diarrhea does not resolve quickly, contact your veterinarian. At the clinic, the team may check a stool sample for parasites, assess hydration, and look for underlying causes, and treatment can include fluids, diet management, deworming, and other supportive care; discuss exact treatment and dosing with your veterinarian. Keeping a record of how often it occurs and what the stool looks like, along with any recent diet changes or possible exposures, helps your veterinarian find the cause.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7128612/",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "triage",
+      "diarrhea",
+      "gastrointestinal",
+      "common-complaint"
+    ]
+  },
+  {
+    "external_id": "triage-limping-lameness-dogs-cats",
+    "title": "Limping and lameness in dogs and cats",
+    "content": "Limping, also called lameness, means a pet is favoring one or more legs, and it is a common complaint with a wide range of causes. These include minor strains and sprains, a torn or broken nail, a cut or splinter in the paw pad, a foreign object lodged between the toes, insect stings, joint problems such as arthritis or a torn knee ligament, hip or elbow conditions, bone injuries, and infections. Some lameness comes on suddenly after activity, while other cases develop gradually, as with arthritis in older pets. The cause and urgency vary widely, so assessing the whole picture matters. Mild, intermittent limping in a pet that is otherwise comfortable, eating, and acting normally can sometimes be rested and monitored briefly, and you can gently check the paw and leg for an obvious thorn, cut, swelling, or stuck object if your pet allows it without pain. However, several situations warrant prompt veterinary care: a leg that is held up and not used at all, obvious swelling or a limb at an abnormal angle, which may indicate a fracture, an open wound, significant pain when the area is touched, limping after a fall or being hit, lameness that lasts more than a day or two or keeps returning, and any limping accompanied by fever, lethargy, or loss of appetite. Suspected fractures or severe pain should be treated as urgent. Never give human pain relievers such as ibuprofen, naproxen, or acetaminophen, because these can be toxic to pets; instead, keep your pet calm and restrict activity while you seek advice. For a suspected fracture, minimize movement and transport carefully without trying to splint it yourself unless guided. At the clinic, the team will examine the limb, may take X-rays, and will recommend treatment that could include rest, pet-safe pain relief, or further care; discuss exact treatment and dosing with your veterinarian. Note which leg is affected, when it started, and whether it is improving or worsening to help your veterinarian.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7167320/",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "triage",
+      "limping",
+      "lameness",
+      "orthopedic",
+      "common-complaint"
+    ]
+  },
+  {
+    "external_id": "triage-itching-skin-allergy-dogs-cats",
+    "title": "Itching and skin allergies in dogs and cats",
+    "content": "Itching, scratching, licking, and chewing at the skin are among the most common reasons pets visit the veterinarian, and persistent itch usually has an underlying cause that needs to be identified. Common causes include fleas and other parasites such as mites, environmental allergies to things like pollen, dust mites, or mold, food sensitivities, and skin infections with bacteria or yeast that often develop secondary to scratching. Even a single flea bite can trigger intense itching in an allergic pet. Signs of skin problems include frequent scratching, licking or chewing especially at the paws, belly, ears, and rear, redness, rashes, bumps or pimples, scaling or crusting, hair loss, a greasy or foul odor, and darkened or thickened skin in chronic cases. Pets may also rub against furniture, shake their heads if the ears are involved, and seem restless or irritable from the discomfort. While itching is rarely an immediate emergency, it can cause real suffering and can lead to raw, infected skin from self-trauma, so it should not be ignored. Seek veterinary care if the itching is intense or constant, if there are open sores, significant hair loss, an odor, or signs of infection, if the pet seems painful, or if home flea control is not helping. Keep your pet on a year-round flea prevention recommended by your veterinarian, since fleas are a leading cause of itch. Avoid using human skin or allergy medications without veterinary direction, as some are unsafe for pets, and avoid bathing with harsh products. At the clinic, the team will look for parasites, infections, and signs of allergy, and may recommend skin tests, a strict diet trial for suspected food allergy, treatment of any infection, and approaches to control allergic itch; discuss exact treatment and dosing with your veterinarian. Because allergies are often lifelong, management focuses on controlling flares and keeping your pet comfortable. Note when the itching is worst and whether it varies by season to help your veterinarian.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7166407/",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "triage",
+      "itching",
+      "skin",
+      "allergy",
+      "dermatology",
+      "common-complaint"
+    ]
+  },
+  {
+    "external_id": "triage-ear-infection-dogs-cats",
+    "title": "Ear infections in dogs and cats",
+    "content": "Ear infections are a common and uncomfortable problem in pets, especially dogs, and particularly those with floppy ears, narrow ear canals, or allergies. The ear canal can become inflamed and overgrown with bacteria or yeast, often as a complication of underlying allergies, excess moisture from swimming or bathing, ear mites especially in cats and young animals, or foreign material such as a grass seed lodged in the canal. Because the discomfort can be significant, recognizing and treating ear infections promptly helps prevent them from worsening or becoming chronic. Signs include scratching at the ears, frequent head shaking, rubbing the head against furniture or the floor, redness and swelling inside the ear, a discharge that may be brown, yellow, or bloody, a strong or foul odor, pain when the ear is touched, and holding the head tilted to one side. Some pets become irritable or withdrawn because of the discomfort. In more advanced cases, swelling or repeated head shaking can cause a blood blister on the ear flap, and infections that spread deeper can affect balance, causing a head tilt, circling, or unsteadiness, which is more serious and needs prompt care. Seek veterinary attention if you notice these signs, especially pain, heavy discharge, a bad odor, or any head tilt or loss of balance. Do not insert cotton swabs deep into the ear, which can push material further in or damage the canal, and avoid using leftover or human ear products without veterinary advice, since the wrong product can be harmful, particularly if the eardrum is affected. At the clinic, the veterinarian will examine the canal, often look at a sample under the microscope to identify the cause, and may clean the ear and recommend appropriate treatment, along with addressing underlying issues like allergies to prevent recurrence; discuss exact treatment and dosing with your veterinarian. Completing the full course of care and rechecks is important, because stopping early often allows the infection to return.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7166408/",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "triage",
+      "ear-infection",
+      "otitis",
+      "dermatology",
+      "common-complaint"
+    ]
+  },
+  {
+    "external_id": "triage-eye-issues-squinting-discharge-dogs-cats",
+    "title": "Eye problems (squinting and discharge) in dogs and cats",
+    "content": "Eye problems are common in dogs and cats and should be taken seriously, because some eye conditions can worsen quickly and threaten vision if not treated promptly. Causes range from minor irritation to infections, scratches or ulcers on the surface of the eye, foreign material such as a grass seed, dry eye, glaucoma, allergies, and injuries. The eye is delicate, so signs of trouble warrant attention rather than a wait-and-see approach. Common signs include squinting or holding the eye partly or fully closed, excessive tearing or discharge that may be clear, yellow, or green, redness of the eye or surrounding tissue, cloudiness or a change in the eye's appearance, swelling, pawing or rubbing at the eye, sensitivity to light, and a visible third eyelid coming across the eye. A pet that suddenly holds an eye shut, has an obviously painful or bulging eye, shows a cloudy or bluish eye, or seems to have lost vision needs urgent care, as do chemical splashes or visible injuries to the eye. If a harmless substance has splashed into the eye, you can gently flush it with a sterile saline eye rinse if available, but do not use medicated drops or leftover products without veterinary direction, and never use human medications meant for other purposes. Prevent your pet from rubbing or pawing at the eye, which can worsen damage, and an emergency collar can help if you have one. Do not delay seeking care for a painful or rapidly changing eye, since conditions like ulcers and glaucoma can progress within hours. At the clinic, the veterinarian will examine the eye, may stain the surface to check for scratches or ulcers, measure eye pressure, and recommend treatment based on the diagnosis; discuss exact treatment and dosing with your veterinarian. Following the treatment plan closely and attending rechecks is important, because untreated eye problems can lead to lasting damage or loss of the eye. Note which eye is affected and when signs began to help your veterinarian.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7166409/",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "triage",
+      "eye",
+      "ocular",
+      "squinting",
+      "discharge",
+      "common-complaint"
+    ]
+  },
+  {
+    "external_id": "triage-lethargy-dogs-cats",
+    "title": "Lethargy in dogs and cats",
+    "content": "Lethargy means a pet is unusually tired, sluggish, or less interested in its surroundings than normal, and it is one of the most common but least specific signs of illness. Because so many conditions can cause lethargy, it is best thought of as a signal that something may be wrong rather than a diagnosis. Causes range from mild and temporary, such as overexertion, a hot day, or a minor passing bug, to serious problems including infections, pain, organ disease, anemia, heart trouble, poisoning, and many others. The key is to look at the whole picture and how quickly the pet is declining. Mild, brief tiredness in a pet that is still eating, drinking, and responding normally, perhaps after a long day of activity, may simply need rest and monitoring. However, lethargy becomes concerning and warrants veterinary care when it is profound or worsening, when the pet is difficult to rouse or unusually weak, or when it comes with other signs such as not eating, vomiting, diarrhea, difficulty breathing, pale or yellow gums, a swollen or painful belly, collapse, fever, or known exposure to a toxin. Lethargy in very young, very old, or chronically ill pets deserves earlier attention, because they can decline quickly. Sudden, severe lethargy or weakness, especially with pale gums or trouble breathing, should be treated as an emergency. If your pet seems mildly tired but otherwise well, you can offer a quiet place to rest and keep a close eye on appetite, drinking, and energy, and contact your veterinarian if there is no improvement or if other signs appear. Do not give human medications in an attempt to help. At the clinic, because lethargy is nonspecific, the veterinarian will rely on a thorough examination and often blood and other tests to find the underlying cause, then direct treatment accordingly; discuss exact treatment and dosing with your veterinarian. Noting when the lethargy started, how severe it is, and any accompanying changes in eating, drinking, or behavior gives your veterinarian valuable clues.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7166410/",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "triage",
+      "lethargy",
+      "nonspecific",
+      "common-complaint"
+    ]
+  },
+  {
+    "external_id": "triage-anorexia-not-eating-dogs-cats",
+    "title": "Loss of appetite (not eating) in dogs and cats",
+    "content": "A loss of appetite, sometimes called anorexia, means a pet is eating less than usual or refusing food entirely, and it is a common sign that something may be wrong. Many things can reduce appetite, including nausea, pain anywhere in the body, dental disease, infections, organ problems, stress or changes in routine, and a wide range of illnesses. While a single skipped meal in an otherwise bright and active pet is often not alarming, a sustained drop in appetite deserves attention, and in cats it can be particularly serious. Cats that stop eating for even a couple of days are at risk of a dangerous liver condition called hepatic lipidosis, so prolonged food refusal in a cat is more urgent than in a dog. Watch for related signs that raise concern, such as vomiting, diarrhea, lethargy, weight loss, drooling or pawing at the mouth, which can indicate dental pain, a swollen or painful belly, yellowing of the gums or eyes, and any difficulty eating or dropping food. Seek veterinary care if your pet refuses food for more than about a day, especially a cat, if appetite loss comes with other symptoms, or if your pet seems to want to eat but cannot. Complete refusal of both food and water, or appetite loss with marked lethargy or pain, should be treated as urgent. You can try offering a normally favored food and reducing stress at mealtime, but do not force-feed or give human medications to stimulate appetite without veterinary guidance, and do not let a cat go without eating for long while waiting. At the clinic, because not eating is nonspecific, the veterinarian will examine your pet, check the mouth and teeth, and often run tests to find the cause, then treat accordingly, which may include addressing nausea or pain and supporting nutrition; discuss exact treatment and dosing with your veterinarian. Keeping track of when your pet last ate normally, how much it is eating now, and any other changes helps your veterinarian pinpoint the problem.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "triage",
+      "anorexia",
+      "not-eating",
+      "appetite",
+      "common-complaint"
+    ]
+  },
+  {
+    "external_id": "triage-coughing-dogs-cats",
+    "title": "Coughing in dogs and cats",
+    "content": "Coughing is a common sign in pets and can come from many different causes, so it is worth paying attention to its pattern and any accompanying signs. In dogs, frequent causes include contagious respiratory infections such as kennel cough, heart disease, collapsing windpipe in small breeds, foreign material in the airway, pneumonia, and parasites such as heartworm. In cats, coughing is often related to feline asthma or other airway inflammation, and is sometimes confused with the gagging that comes before bringing up a hairball. Identifying when the cough occurs and what it sounds like can help your veterinarian. Note whether the cough is dry and honking, moist or productive, worse at night or with exercise or excitement, and whether it comes with other signs. A cough in a pet that is otherwise bright, eating, and breathing comfortably, especially a short-lived dry cough after exposure to other dogs, may be monitored briefly, but several features call for prompt veterinary care. These include a cough that is persistent or worsening, difficulty breathing or rapid breathing, blue-tinged gums, coughing up blood or froth, marked lethargy, loss of appetite, fainting or weakness with coughing, and any coughing in a cat, which is less common and often signals asthma or another condition needing evaluation. A coughing pet that is struggling to breathe is an emergency and needs immediate care. Keep your pet calm and avoid anything that triggers coughing fits, such as pulling on a collar; a harness can help dogs that cough. Do not give human cough or cold medications, as some contain ingredients that are toxic to pets. At the clinic, the veterinarian will examine your pet, listen to the heart and lungs, and may take chest X-rays or run other tests to find the cause, then recommend treatment based on the diagnosis; discuss exact treatment and dosing with your veterinarian. Make sure your pet is on year-round heartworm prevention as advised, since heartworm disease can cause coughing and is preventable.",
+    "source_name": "FDA Center for Veterinary Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.fda.gov/animal-veterinary/animal-health-literacy/keep-worms-out-your-pets-heart-facts-about-heartworm-disease",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "triage",
+      "coughing",
+      "respiratory",
+      "common-complaint"
+    ]
+  },
+  {
+    "external_id": "triage-urinary-straining-dogs-cats",
+    "title": "Urinary problems and straining in dogs and cats",
+    "content": "Changes in urination are a common reason pets are seen by the veterinarian, and they can signal anything from a manageable infection to a true emergency. Common causes include urinary tract infections, bladder inflammation, bladder stones or crystals, and, in cats especially, a stress-related bladder condition. Signs to watch for include straining to urinate, urinating small amounts frequently, accidents in a previously house-trained pet, blood in the urine, urinating in unusual places, crying or signs of discomfort while urinating, and excessive licking of the genital area. Increased thirst and urination can also point to conditions such as kidney disease or diabetes and deserve evaluation. The most important distinction is whether the pet can pass urine at all. A pet, and especially a male cat, that is straining repeatedly but producing little or no urine may have a urinary blockage, which is a life-threatening emergency requiring immediate care, because a blocked pet can become critically ill within a day. If your cat or dog is straining with little or no urine output, appears painful, is vomiting, or is becoming lethargic, contact your veterinarian or an emergency clinic right away rather than waiting. For milder urinary signs in a pet that is still passing normal amounts of urine and otherwise feels well, such as a little blood or more frequent trips, contact your veterinarian promptly to arrange evaluation, since infections and inflammation are uncomfortable and can worsen. Do not give human medications, and do not restrict water unless your veterinarian advises it. Bringing a fresh urine sample, if you can collect one easily, may help with diagnosis. At the clinic, the veterinarian will examine your pet, often test the urine, and may recommend imaging to look for stones, then treat the underlying cause, which may involve managing infection, dissolving or removing stones, dietary changes, and stress reduction for cats; discuss exact treatment and dosing with your veterinarian. Note how often your pet is urinating, how much, and whether there is straining or blood to help your veterinarian.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6979513/",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "triage",
+      "urinary",
+      "straining",
+      "bladder",
+      "common-complaint"
+    ]
+  },
+  {
+    "external_id": "breed-brachycephalic-airway-syndrome-dogs",
+    "title": "Brachycephalic airway syndrome in flat-faced dogs",
+    "content": "Brachycephalic airway syndrome is a breathing problem common in flat-faced, short-nosed dogs such as Bulldogs, French Bulldogs, Pugs, Boston Terriers, Boxers, and similar breeds, and it also affects flat-faced cats like Persians. The same features that give these dogs their distinctive faces, a shortened skull and compressed airway, can crowd and narrow the structures they breathe through. Several anatomical issues often occur together, including narrowed nostrils, an overly long soft palate that partly blocks the throat, and a narrowed windpipe, all of which make it harder to move air. Affected dogs frequently snore, snort, and make noisy breathing sounds even at rest, breathe loudly with exercise, tire easily, and may gag or retch, especially around eating or excitement. Because these dogs already struggle to move air and to cool themselves by panting, they are at much higher risk of overheating and heatstroke, and they can develop sudden, severe breathing distress in hot or humid weather, with exertion, or when stressed or excited. Signs of a breathing crisis include extreme effort to breathe, very loud or labored breathing, blue or gray gums, collapse, and high body temperature, all of which are emergencies that require immediate veterinary care. To keep these pets safe, avoid exercise and excitement during heat and humidity, keep them cool and well hydrated, maintain a healthy weight since extra weight worsens breathing, use a harness rather than a neck collar, and avoid stressful situations that trigger heavy panting. Be cautious with air travel and never leave these pets in warm vehicles. If your flat-faced pet shows worsening noisy breathing, frequent gagging, exercise intolerance, or episodes of distress, have it evaluated, because some of the underlying problems can be improved with treatment, including corrective procedures for narrowed nostrils or an elongated soft palate; discuss exact treatment and dosing with your veterinarian. Early recognition and careful day-to-day management greatly improve comfort and reduce the risk of dangerous breathing emergencies in these beloved but vulnerable breeds.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7173377/",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "breed",
+      "brachycephalic",
+      "airway",
+      "respiratory",
+      "bulldog",
+      "pug"
+    ]
+  },
+  {
+    "external_id": "breed-gdv-risk-deep-chested-dogs",
+    "title": "Bloat (GDV) risk in deep-chested dog breeds",
+    "content": "Some dog breeds are at much higher risk of bloat and its dangerous form, gastric dilatation-volvulus or GDV, in which the stomach fills with gas and twists, cutting off blood flow and rapidly leading to shock. This is a true emergency, and certain breeds carry a notably greater lifetime risk, so their owners should understand the warning signs in advance. The breeds most affected are large and giant dogs with deep, narrow chests, including Great Danes, which are among the highest risk, as well as German Shepherds, Standard Poodles, Weimaraners, Saint Bernards, Irish Setters, Doberman Pinschers, and similar deep-chested dogs. Risk also tends to increase with age and may be higher in dogs that have a close relative that experienced bloat, suggesting a familial component. Factors that may raise the risk include eating large meals quickly, gulping air, vigorous exercise soon after eating, and stress. Owners of at-risk breeds should know the emergency signs: a swelling or distended belly, especially behind the ribs, repeated unproductive retching where the dog tries to vomit but brings up little or nothing, restlessness and pacing, drooling, a hunched or uncomfortable posture, rapid breathing, pale gums, weakness, and collapse. Because GDV can be fatal within hours, any deep-chested dog showing these signs needs to go to a veterinarian or emergency clinic immediately. To reduce risk, your veterinarian may suggest feeding smaller, more frequent meals, slowing down fast eaters with appropriate feeding methods, avoiding vigorous activity right around mealtimes, and managing stress. For the highest-risk breeds, a preventive surgery that tacks the stomach to the body wall, which can be done at the time of spay or neuter, greatly lowers the chance of the stomach twisting; discuss exact treatment and dosing with your veterinarian to decide whether this is appropriate for your dog. Knowing your breed's risk and recognizing the early signs can be the difference between life and death, since survival depends heavily on how quickly affected dogs receive emergency care.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7167321/",
+    "species": [
+      "dog"
+    ],
+    "topic_tags": [
+      "breed",
+      "gdv",
+      "bloat",
+      "deep-chested",
+      "emergency",
+      "prevention"
+    ]
+  },
+  {
+    "external_id": "breed-hip-dysplasia-large-breed-dogs",
+    "title": "Hip dysplasia in large-breed dogs",
+    "content": "Hip dysplasia is a common developmental joint condition in dogs, particularly large and giant breeds, in which the hip joint does not form a snug, stable fit. The hip is a ball-and-socket joint, and when the ball and socket do not match well, the joint becomes loose and unstable. Over time this looseness leads to abnormal wear, inflammation, and the development of arthritis, which causes pain and reduced mobility. Breeds frequently affected include German Shepherds, Labrador and Golden Retrievers, Rottweilers, Saint Bernards, and other large dogs, though smaller dogs and even cats can be affected. The condition has a hereditary component, and factors such as rapid growth, excess weight, and over-exercise during puppyhood can influence how it develops. Signs vary with age and severity and may include difficulty rising, reluctance to jump, climb stairs, or run, a swaying or bunny-hopping gait in the hind legs, stiffness that is often worse after rest or in cold weather, decreased activity, and reduced muscle in the hindquarters over time. Some dogs show signs as youngsters, while others are not noticeably affected until arthritis develops in later years. Hip dysplasia is not usually an emergency, but it can significantly affect a dog's comfort and quality of life, so signs of hip pain or stiffness deserve veterinary evaluation. Never give human pain relievers such as ibuprofen, naproxen, or acetaminophen, which are toxic to pets. Helpful long-term management often centers on keeping the dog lean, since extra weight worsens joint stress, along with appropriate low-impact exercise to maintain muscle, comfortable bedding, and other supportive measures. At the clinic, the veterinarian can confirm the diagnosis with an examination and X-rays and recommend a management plan, which may range from weight control and pet-safe pain relief and joint support to surgical options in more severe cases; discuss exact treatment and dosing with your veterinarian. Because the condition is partly inherited, responsible breeding practices and choosing puppies from screened parents can help reduce its occurrence in at-risk breeds.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7167322/",
+    "species": [
+      "dog"
+    ],
+    "topic_tags": [
+      "breed",
+      "hip-dysplasia",
+      "orthopedic",
+      "arthritis",
+      "large-breed"
+    ]
+  },
+  {
+    "external_id": "toxin-marijuana-thc-dogs-cats",
+    "title": "Marijuana (THC) toxicity in dogs and cats",
+    "content": "With the increasing presence of cannabis products in homes, marijuana poisoning in pets has become much more common, and dogs are the most frequent victims. Pets can be exposed by eating dried plant material, by getting into edibles such as baked goods, gummies, or chocolates, or by ingesting concentrated oils. The active compound responsible for intoxication is THC, and pets are more sensitive to it than people. An added danger is that many edibles also contain chocolate, xylitol, or raisins, each of which carries its own serious toxicity, so an edible exposure can involve more than one poison at once. Signs usually appear within 30 minutes to a few hours and commonly include wobbliness and an uncoordinated, drunken walk, lethargy and dullness, dilated pupils, dribbling urine, an exaggerated startle response to sound or touch, low body temperature, a slow heart rate, and sometimes agitation or vomiting. In more severe cases, especially with concentrated products, pets can become severely sedated, unresponsive, or develop tremors or seizures. While many cases are mild, some are serious, and the safest approach is to seek guidance rather than wait it out at home. If your pet may have ingested any cannabis product, contact your veterinarian or an animal poison control service, and be honest about the exposure, since this information is critical to proper care and your pet's wellbeing is the priority, not judgment. Bring packaging if available so the type and amount, and any other ingredients like chocolate or xylitol, can be assessed. Do not induce vomiting at home, as a wobbly or sedated pet can inhale vomit. At the clinic, treatment is mainly supportive and may include decontamination if recent and safe, fluids, warmth, and monitoring of heart rate and temperature until the effects wear off, with additional care if other toxins were involved; discuss exact treatment and dosing with your veterinarian. Most pets recover fully with supportive care. Prevent exposure by storing all cannabis products securely out of reach, just as you would any medication.",
+    "source_name": "FDA Center for Veterinary Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.fda.gov/animal-veterinary/resources-you/animal-health-literacy",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "toxin",
+      "marijuana",
+      "thc",
+      "cannabis",
+      "neurologic",
+      "household"
+    ]
+  },
+  {
+    "external_id": "emergency-allergic-reaction-anaphylaxis-dogs-cats",
+    "title": "Allergic reactions and anaphylaxis in dogs and cats",
+    "content": "Pets can have allergic reactions ranging from mild and annoying to sudden and life-threatening, and recognizing the difference helps you respond appropriately. Reactions are often triggered by insect stings or bites, certain medications or vaccines, foods, or other allergens. Mild to moderate reactions commonly cause facial swelling, especially around the muzzle and eyes, raised itchy bumps called hives across the skin, redness, intense itching, and sometimes vomiting or diarrhea. While alarming to see, these milder reactions are usually not immediately life-threatening, but they still warrant prompt veterinary attention because they can worsen. The most severe form, anaphylaxis, is a rapid, whole-body reaction that is a true emergency. In pets it can cause sudden weakness or collapse, difficulty breathing, pale gums, vomiting and diarrhea, a drop in blood pressure leading to shock, and, in dogs especially, signs may center on the digestive tract and circulation. Anaphylaxis can develop within minutes of exposure and can be fatal without rapid treatment. If your pet suddenly collapses, struggles to breathe, has pale gums, or rapidly worsens after a sting, new medication, or other exposure, treat it as an emergency and get to a veterinarian or emergency clinic immediately, calling ahead. For milder reactions such as facial swelling or hives in a pet that is breathing comfortably and acting fairly normally, contact your veterinarian promptly for guidance, and watch closely for any progression to breathing trouble or collapse, which means you should go in at once. Do not give human allergy medications on your own, because dosing and product choice matter and some products are not safe for pets; let your veterinarian direct any treatment. If a stinger is visible, you can gently scrape it away. At the clinic, treatment depends on severity and may include medications to calm the reaction, support for breathing and blood pressure, fluids, and monitoring; discuss exact treatment and dosing with your veterinarian. If your pet has had a serious reaction before, ask your veterinarian about an action plan for future exposures.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7166412/",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "emergency",
+      "allergic-reaction",
+      "anaphylaxis",
+      "first-aid",
+      "life-threatening"
+    ]
+  },
+  {
+    "external_id": "triage-skin-wound-abscess-dogs-cats",
+    "title": "Skin wounds and abscesses in dogs and cats",
+    "content": "Skin wounds and abscesses are common in pets, particularly in cats that roam or get into fights, and recognizing them early helps prevent painful complications. Wounds can result from bites, scratches, cuts, scrapes, and punctures. Bite wounds are especially important because the small puncture in the skin can seal over while bacteria are trapped underneath, leading to an abscess, which is a painful pocket of infection and pus that develops over days. Cats commonly develop abscesses after fights, often on the face, legs, or base of the tail. Signs of a wound or developing abscess include a visible cut or puncture, swelling, redness, heat, and pain in an area, a soft fluid-filled lump, discharge or a foul odor, matted fur over a sore spot, licking or grooming at one area, and more general signs such as fever, lethargy, and reduced appetite as the infection takes hold. Some abscesses rupture and drain on their own, leaving an open, oozing sore. Most wounds and abscesses are not immediate emergencies, but they are uncomfortable and tend to worsen without care, so prompt veterinary attention is wise, especially for puncture and bite wounds, anything swollen, hot, or draining, large or deep wounds, wounds near the eyes or over the chest or abdomen, and any wound accompanied by fever or lethargy. Heavy bleeding or a large gaping wound should be treated urgently. For minor surface wounds, you can gently clean the area with mild saline if your pet tolerates it and prevent licking, but avoid using strong antiseptics, alcohol, or human ointments without veterinary advice, and never give human pain medications, which can be toxic. Do not try to drain an abscess yourself. At the clinic, the veterinarian will clean and assess the wound, may need to drain an abscess and address infection, and will recommend appropriate care to help it heal; discuss exact treatment and dosing with your veterinarian. Keeping outdoor cats indoors or supervised and staying current on vaccines helps reduce fight wounds and their complications.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7166413/",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "triage",
+      "wound",
+      "abscess",
+      "skin",
+      "infection",
+      "common-complaint"
+    ]
+  },
+  {
+    "external_id": "triage-dental-disease-dogs-cats",
+    "title": "Dental disease and oral pain in dogs and cats",
+    "content": "Dental disease is one of the most widespread health problems in dogs and cats, and because pets often hide oral pain, it is frequently overlooked until it is advanced. It begins when plaque and tartar build up on the teeth and along the gumline, leading to inflammation of the gums and, over time, infection and damage to the structures that support the teeth. This can cause chronic pain, loose or abscessed teeth, and bacteria entering the bloodstream, which may affect overall health. Cats can also develop specific painful dental conditions, and both species commonly suffer in silence while continuing to eat. Signs to watch for include bad breath, which is often the earliest clue, yellow or brown tartar on the teeth, red, swollen, or bleeding gums, drooling, pawing at the mouth, dropping food or chewing on one side, reluctance to eat hard food, facial swelling, and a decline in grooming in cats. Some pets become withdrawn or irritable because of ongoing discomfort. Dental disease is rarely an emergency, but a facial swelling under the eye, signs of significant mouth pain, or a pet that suddenly stops eating warrants prompt veterinary attention, and any cat that stops eating needs timely care. Because much dental disease lies below the gumline, it cannot be fully assessed or treated at home; a thorough evaluation and professional cleaning under anesthesia, often with dental X-rays, is needed to find and address problems. Do not attempt to scrape tartar yourself or give human pain medications, which can be toxic to pets. At the clinic, the veterinarian will examine the mouth, recommend professional dental care as appropriate, and treat painful or diseased teeth; discuss exact treatment and dosing with your veterinarian. Between professional cleanings, you can support oral health at home with veterinary-recommended measures such as tooth brushing with pet-safe products and approved dental treats. Regular checkups allow problems to be caught early, before they cause significant pain or tooth loss, keeping your pet comfortable and healthy.",
+    "source_name": "NIH National Library of Medicine",
+    "license": "Public Domain (US Government)",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7166414/",
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "topic_tags": [
+      "triage",
+      "dental",
+      "oral",
+      "pain",
+      "common-complaint"
+    ]
+  }
+]

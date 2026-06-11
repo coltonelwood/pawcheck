@@ -1,5 +1,10 @@
 import Anthropic from '@anthropic-ai/sdk'
-import { PET_HEALTH_SYSTEM_PROMPT, buildAnalysisPrompt, AnalysisResult } from './prompts'
+import {
+  PET_HEALTH_SYSTEM_PROMPT,
+  buildAnalysisPrompt,
+  AnalysisResult,
+  ClarificationRound,
+} from './prompts'
 
 // Lazy singleton — constructing the SDK at module scope throws when
 // ANTHROPIC_API_KEY is missing, which crashes `next build`.
@@ -31,6 +36,13 @@ export async function analyzePetPhoto(params: {
   symptoms?: string[]
   /** Optional grounding passages from the veterinary knowledge base (RAG). */
   knowledgeContext?: string
+  /** Interactive-clarification state (omit for single-shot behavior). */
+  clarify?: {
+    roundNumber: number
+    canClarify: boolean
+    emergencySuspected: boolean
+    rounds?: ClarificationRound[]
+  }
 }): Promise<{ result: AnalysisResult; rawResponse: any; processingTimeMs: number }> {
   const startTime = Date.now()
 
@@ -60,7 +72,8 @@ export async function analyzePetPhoto(params: {
     params.pet,
     params.userDescription,
     params.symptoms,
-    !!params.imageUrl
+    !!params.imageUrl,
+    params.clarify
   )
 
   // Ground the assessment in retrieved veterinary literature when available.
@@ -124,6 +137,23 @@ export async function analyzePetPhoto(params: {
 }
 
 function validateAnalysisResult(result: any): asserts result is AnalysisResult {
+  // Tolerate legacy responses that omit `mode` — treat as a final assessment.
+  if (result.mode !== 'final' && result.mode !== 'clarify') {
+    if (result.urgency) result.mode = 'final'
+    else throw new Error('AI response missing mode')
+  }
+
+  // CLARIFY responses only need a non-empty question set (or a photo request).
+  if (result.mode === 'clarify') {
+    const c = result.clarification
+    const hasQuestions = c && Array.isArray(c.questions) && c.questions.length > 0
+    const hasPhoto = c && c.photo_request && c.photo_request.guidance
+    if (!hasQuestions && !hasPhoto) {
+      throw new Error('clarify response must include questions or a photo_request')
+    }
+    return
+  }
+
   const requiredFields = [
     'urgency',
     'urgency_label',
