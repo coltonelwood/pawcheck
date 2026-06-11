@@ -266,7 +266,7 @@ export async function POST(request: NextRequest) {
         const persisted = [...priorRounds]
         // If continuation, priorRounds already updated with answers above.
         persisted.push(newRound)
-        await supabase
+        const { error: clarifyErr } = await supabase
           .from('queries')
           .update({
             status: 'awaiting_clarification',
@@ -275,6 +275,10 @@ export async function POST(request: NextRequest) {
             ...(activePhotoPath ? { photo_url: activePhotoPath } : {}),
           })
           .eq('id', query!.id)
+        if (clarifyErr) {
+          console.error('Failed to persist clarification:', clarifyErr.message)
+          return NextResponse.json({ error: 'Could not save clarification state' }, { status: 500 })
+        }
 
         return NextResponse.json({
           query_id: query!.id,
