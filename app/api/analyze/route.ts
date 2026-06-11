@@ -19,7 +19,9 @@ const MAX_CLARIFY_ROUNDS = 2
 
 const RequestSchema = z
   .object({
-    pet_id: z.string().uuid(),
+    // Required on an initial assessment; omitted on a clarification continuation
+    // (the pet is taken from the existing query).
+    pet_id: z.string().uuid().optional(),
     input_method: z.enum(['photo', 'describe', 'guided']).default('photo'),
     photo_path: z.string().min(1).max(500).nullable().optional(),
     description: z.string().max(4000).nullable().optional(),
@@ -34,11 +36,15 @@ const RequestSchema = z
     // --- continuation of an in-progress assessment (clarification round) ---
     query_id: z.string().uuid().optional(),
     clarification_answers: z.record(z.string().max(1000)).nullable().optional(),
+    // Owner tapped "that's all I know" — force a best-effort FINAL result.
+    force_final: z.boolean().optional(),
   })
   .refine(
     (d) => d.query_id || d.photo_path || (d.description && d.description.trim()) || d.guided,
     { message: 'Provide a photo, a description, or guided answers' }
   )
+  // An initial assessment (no query_id) must identify the pet.
+  .refine((d) => d.query_id || d.pet_id, { message: 'pet_id is required' })
 
 export async function POST(request: NextRequest) {
   try {
@@ -72,6 +78,7 @@ export async function POST(request: NextRequest) {
       guided,
       query_id,
       clarification_answers,
+      force_final,
     } = validation.data
 
     if (photo_path && !photo_path.startsWith(`${user.id}/`)) {
@@ -151,7 +158,7 @@ export async function POST(request: NextRequest) {
       }))
     const answeredRounds = rounds.length
     const roundNumber = answeredRounds + 1
-    const canClarify = roundNumber <= MAX_CLARIFY_ROUNDS
+    const canClarify = roundNumber <= MAX_CLARIFY_ROUNDS && !force_final
 
     // Initial call consumes one credit (covers the WHOLE conversation). Continuation does not.
     if (!isContinuation) {

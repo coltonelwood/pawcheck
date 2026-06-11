@@ -1,9 +1,10 @@
 import { createClient } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, AlertCircle, ShieldCheck, Stethoscope, Clock, Phone } from 'lucide-react'
+import { ArrowLeft, AlertCircle, ShieldCheck, Stethoscope, Clock, Phone, Library, ExternalLink } from 'lucide-react'
 import UrgencyBadge from '@/components/UrgencyBadge'
 import { Button } from '@/components/ui/button'
+import ClarificationStep from '@/components/ClarificationStep'
 import { formatDate } from '@/lib/utils'
 import { signPetPhoto } from '@/lib/storage'
 
@@ -34,6 +35,20 @@ export default async function QueryDetailPage({ params }: PageProps) {
 
   if (query.status === 'failed') {
     return <FailedState message={query.error_message} />
+  }
+
+  if (query.status === 'awaiting_clarification' && Array.isArray(query.clarification) && query.clarification.length) {
+    const round = query.clarification[query.clarification.length - 1]
+    return (
+      <div>
+        <div className="container max-w-2xl pt-8">
+          <Link href="/dashboard" className="inline-flex items-center gap-2 text-sm text-ink-mute hover:text-ink transition-colors">
+            <ArrowLeft className="w-4 h-4" /> Back to dashboard
+          </Link>
+        </div>
+        <ClarificationStep queryId={query.id} round={round} userId={user.id} />
+      </div>
+    )
   }
 
   const photoUrl = await signPetPhoto(supabase, query.photo_url)
@@ -188,6 +203,33 @@ export default async function QueryDetailPage({ params }: PageProps) {
                   Q{i + 1}.
                 </span>
                 <span>{q}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* Sources — grounded in veterinary literature */}
+      {Array.isArray(query.sources) && query.sources.length > 0 && (
+        <div className="bg-card rounded-2xl border border-cream-300/60 p-6 mb-6">
+          <h2 className="font-display text-xl font-semibold text-ink mb-1 flex items-center gap-2">
+            <Library className="w-5 h-5 text-forest-600" />
+            Sources
+          </h2>
+          <p className="text-sm text-ink-mute mb-4">
+            This assessment is grounded in open-access veterinary literature.
+          </p>
+          <ul className="space-y-2">
+            {query.sources.map((s: any, i: number) => (
+              <li key={i} className="flex items-start gap-2 text-sm">
+                {s.url ? (
+                  <a href={s.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-start gap-2 text-forest-700 hover:underline">
+                    <ExternalLink className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                    <span>{s.name}{s.license ? <span className="text-ink-mute"> · {s.license}</span> : null}</span>
+                  </a>
+                ) : (
+                  <span className="text-ink-soft">{s.name}{s.license ? ` · ${s.license}` : ''}</span>
+                )}
               </li>
             ))}
           </ul>
