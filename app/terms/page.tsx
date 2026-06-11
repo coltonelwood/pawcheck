@@ -28,16 +28,6 @@ export default function TermsPage() {
         <p className="text-ink-mute mb-12">Last updated: May 19, 2026</p>
 
         <div className="space-y-6 text-ink-soft leading-relaxed">
-          <p className="p-4 bg-urgency-red/5 border border-urgency-red/20 rounded-xl text-sm">
-            <strong className="text-ink">CRITICAL: This is a starting template only.</strong>{' '}
-            You MUST have a qualified attorney review and customize this
-            document before launch. Pet health software carries unique legal
-            risks (unauthorized practice of veterinary medicine claims, FDA
-            regulation considerations, class action exposure). Do not launch
-            without proper legal review. Budget $1,500-2,500 for proper TOS,
-            Privacy, and Medical Disclaimer drafting.
-          </p>
-
           <section>
             <h2 className="font-display text-2xl font-semibold text-ink mt-8 mb-3">
               1. Acceptance of Terms
@@ -184,9 +174,10 @@ export default function TermsPage() {
               12. Governing Law
             </h2>
             <p>
-              These Terms are governed by the laws of [YOUR JURISDICTION].
-              Disputes shall be resolved through binding arbitration in
-              [YOUR JURISDICTION].
+              These Terms are governed by the laws of the United States and the
+              state in which PawCheck&apos;s operator is established, without regard
+              to conflict-of-law principles. Disputes shall be resolved through
+              binding arbitration in that jurisdiction.
             </p>
           </section>
 

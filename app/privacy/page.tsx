@@ -28,14 +28,6 @@ export default function PrivacyPage() {
         <p className="text-ink-mute mb-12">Last updated: May 19, 2026</p>
 
         <div className="prose prose-stone max-w-none space-y-6 text-ink-soft leading-relaxed">
-          <p className="p-4 bg-amber-50 border border-amber-200/60 rounded-xl text-sm">
-            <strong className="text-ink">Template Notice:</strong> This privacy
-            policy is a starting template. Before launching publicly, have a
-            qualified attorney review and customize this document for your
-            specific business, jurisdiction (state laws like CCPA, BIPA), and
-            data practices.
-          </p>
-
           <section>
             <h2 className="font-display text-2xl font-semibold text-ink mt-8 mb-3">
               1. Introduction
